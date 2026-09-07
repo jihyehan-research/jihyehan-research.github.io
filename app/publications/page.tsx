@@ -1,0 +1,3 @@
+import publications from '../publications.json';
+export const metadata = { title: 'Publications | Jihye Han' };
+export default function Page() { return (<section id="publications"><div className="section-heading"><p className="eyebrow">02 / Publications</p><h1>Peer-reviewed journal articles</h1><p>Updated September 2026</p></div><ol className="papers">{publications.map(p=><li key={p.doi}><span className="paper-year">{p.year}</span><div><p className="journal">{p.journal}</p><h3>{p.title}</h3><p className="authors">{p.authors.split(/(Han J)/).map((s,i)=>s==='Han J'?<strong key={i}>{s}</strong>:s)}.</p></div><a className="view-button" href={'https://doi.org/'+p.doi} aria-label={'View article: '+p.title}>View</a></li>)}</ol></section>); }

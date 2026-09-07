@@ -1,0 +1,2 @@
+export const metadata = { title: 'Curriculum Vitae | Jihye Han' };
+export default function Page() { return (<section id="cv" className="cv"><div><p className="eyebrow">04 / Curriculum vitae</p><h1>Experience & background</h1><p>Education, publications, presentations, teaching, and professional experience.</p></div><a className="social-button" href="/Jihye-Han-CV.pdf">View CV (PDF)</a><a className="button" href="/Jihye-Han-CV.pdf" download>Download CV (PDF)</a></section>); }
