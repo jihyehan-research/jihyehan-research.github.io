@@ -2,6 +2,26 @@ import type { Metadata } from 'next';
 import './globals.css';
 import SiteHeader from './site-header';
 export const metadata: Metadata = {
+ metadataBase: new URL('https://jihyehan.com'),
+ openGraph: {
+  type: 'website',
+  siteName: 'Jihye Han',
+  title: 'Jihye Han, PharmD, MPH',
+  description: 'Pharmaceutical Policy Research · Vanderbilt University',
+  images: [{
+   url: 'https://jihyehan.com/jihye-han.jpg',
+   width: 1461,
+   height: 1461,
+   type: 'image/jpeg',
+   alt: 'Jihye Han, PharmD, MPH',
+  }],
+ },
+ twitter: {
+  card: 'summary',
+  title: 'Jihye Han, PharmD, MPH',
+  description: 'Pharmaceutical Policy Research · Vanderbilt University',
+  images: ['https://jihyehan.com/jihye-han.jpg'],
+ },
  title: 'Jihye Han, PharmD, MPH | Pharmaceutical Policy Research',
  description: 'Jihye Han is a PhD student in Health Policy at Vanderbilt University. Explore her research, publications, curriculum vitae, and media coverage.',
 };
