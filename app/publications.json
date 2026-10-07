@@ -5,7 +5,11 @@
     "title": "Using Prescription Drug Data for Timely Assessments of State Insurance Coverage Rates: A Validation Study",
     "journal": "Health Affairs Scholar",
     "year": "2026",
-    "doi": "10.1093/haschl/qxag149"
+    "doi": "10.1093/haschl/qxag149",
+    "topics": [
+      "claim data analysis"
+    ],
+    "highlighted": false
   },
   {
     "id": 10,
@@ -13,7 +17,11 @@
     "title": "Medicare Spending Implications for Semaglutide under Voluntary Price Agreements",
     "journal": "JAMA",
     "year": "2026",
-    "doi": "10.1001/jama.2026.2615"
+    "doi": "10.1001/jama.2026.2615",
+    "topics": [
+      "pharmacoeconomics"
+    ],
+    "highlighted": false
   },
   {
     "id": 9,
@@ -21,7 +29,13 @@
     "title": "Reanalyzing Value Assessments in American Heart Association Clinical Practice Guidelines Using Health Years in Total Instead of Quality-Adjusted Life-Years",
     "journal": "Value in Health",
     "year": "2026",
-    "doi": "10.1016/j.jval.2025.11.012"
+    "doi": "10.1016/j.jval.2025.11.012",
+    "topics": [
+      "health decision modeling",
+      "cost-effectiveness analysis",
+      "pharmacoeconomics"
+    ],
+    "highlighted": false
   },
   {
     "id": 8,
@@ -29,15 +43,22 @@
     "title": "List Price Reductions among Brand-Name ICS-LABA Inhalers In 2024 Were Associated with Increased Generic Uptake",
     "journal": "Health Affairs",
     "year": "2026",
-    "doi": "10.1377/hlthaff.2025.01309"
+    "doi": "10.1377/hlthaff.2025.01309",
+    "topics": [
+      "claim data analysis",
+      "pharmacoepidemiology"
+    ],
+    "highlighted": false
   },
   {
     "id": 7,
     "authors": "Papanicolas I, Wouters OJ, Sawaya T, Han J, Wei J, Naci H",
-    "title": "Review Times for New Drugs and Submission Delays among the FDA and 4 International Regulators, 2014\u201322",
+    "title": "Review Times for New Drugs and Submission Delays among the FDA and 4 International Regulators, 2014–22",
     "journal": "Health Affairs",
     "year": "2026",
-    "doi": "10.1377/hlthaff.2025.00595"
+    "doi": "10.1377/hlthaff.2025.00595",
+    "topics": [],
+    "highlighted": false
   },
   {
     "id": 6,
@@ -45,7 +66,12 @@
     "title": "Changes in Medication Use during Medicaid Continuous Enrollment and Unwinding",
     "journal": "JAMA Health Forum",
     "year": "2026",
-    "doi": "10.1001/jamahealthforum.2025.5890"
+    "doi": "10.1001/jamahealthforum.2025.5890",
+    "topics": [
+      "claim data analysis",
+      "pharmacoepidemiology"
+    ],
+    "highlighted": false
   },
   {
     "id": 5,
@@ -53,7 +79,11 @@
     "title": "Inhaler-related Greenhouse Gas Emissions in the US: A Serial Cross-sectional Analysis",
     "journal": "JAMA",
     "year": "2025",
-    "doi": "10.1001/jama.2025.16524"
+    "doi": "10.1001/jama.2025.16524",
+    "topics": [
+      "pharmacoepidemiology"
+    ],
+    "highlighted": false
   },
   {
     "id": 4,
@@ -61,7 +91,11 @@
     "title": "Assessing Outcomes Emerging After Conversion to Regular Approval for Cancer Drug Indications Granted Accelerated Approval Drugs, 1992-2021",
     "journal": "JNCI: Journal of the National Cancer Institute",
     "year": "2025",
-    "doi": "10.1093/jnci/djaf195"
+    "doi": "10.1093/jnci/djaf195",
+    "topics": [
+      "accelerated approval"
+    ],
+    "highlighted": false
   },
   {
     "id": 3,
@@ -69,7 +103,9 @@
     "title": "Public Discourse on Substance Use Behavior as a Driver of Public Policy: A Scoping Review of South Korean Academic and Official Literature",
     "journal": "Addiction Research & Theory",
     "year": "2025",
-    "doi": "10.1080/16066359.2024.2444236"
+    "doi": "10.1080/16066359.2024.2444236",
+    "topics": [],
+    "highlighted": false
   },
   {
     "id": 2,
@@ -77,7 +113,13 @@
     "title": "Use of and Cost of First-Line Biologic Medications to Treat Plaque Psoriasis in the US",
     "journal": "JAMA Dermatology",
     "year": "2025",
-    "doi": "10.1001/jamadermatol.2025.0669"
+    "doi": "10.1001/jamadermatol.2025.0669",
+    "topics": [
+      "claim data analysis",
+      "pharmacoepidemiology",
+      "pharmacoeconomics"
+    ],
+    "highlighted": false
   },
   {
     "id": 1,
@@ -85,6 +127,11 @@
     "title": "First-in-Class Drugs Experienced Different Regulatory Treatment in the US and Europe",
     "journal": "Health Affairs",
     "year": "2025",
-    "doi": "10.1377/hlthaff.2024.01072"
+    "doi": "10.1377/hlthaff.2024.01072",
+    "topics": [
+      "first-in-class drug",
+      "accelerated approval"
+    ],
+    "highlighted": false
   }
 ]
