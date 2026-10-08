@@ -7,7 +7,8 @@
     "year": "2026",
     "doi": "10.1093/haschl/qxag149",
     "topics": [
-      "claim data analysis"
+      "claim data analysis",
+      "pharmacoepidemiology"
     ],
     "highlighted": false
   },
@@ -19,7 +20,8 @@
     "year": "2026",
     "doi": "10.1001/jama.2026.2615",
     "topics": [
-      "pharmacoeconomics"
+      "pharmacoeconomics",
+      "pharmacy benefit design"
     ],
     "highlighted": false
   },
@@ -32,8 +34,7 @@
     "doi": "10.1016/j.jval.2025.11.012",
     "topics": [
       "health decision modeling",
-      "cost-effectiveness analysis",
-      "pharmacoeconomics"
+      "cost-effectiveness analysis"
     ],
     "highlighted": false
   },
@@ -46,9 +47,10 @@
     "doi": "10.1377/hlthaff.2025.01309",
     "topics": [
       "claim data analysis",
-      "pharmacoepidemiology"
+      "pharmacoepidemiology",
+      "pharmacy benefit design"
     ],
-    "highlighted": false
+    "highlighted": true
   },
   {
     "id": 7,
@@ -57,7 +59,10 @@
     "journal": "Health Affairs",
     "year": "2026",
     "doi": "10.1377/hlthaff.2025.00595",
-    "topics": [],
+    "topics": [
+      "accelerated approval",
+      "pharmacoeconomics"
+    ],
     "highlighted": false
   },
   {
@@ -93,7 +98,8 @@
     "year": "2025",
     "doi": "10.1093/jnci/djaf195",
     "topics": [
-      "accelerated approval"
+      "accelerated approval",
+      "pharmacoeconomics"
     ],
     "highlighted": false
   },
@@ -130,8 +136,10 @@
     "doi": "10.1377/hlthaff.2024.01072",
     "topics": [
       "first-in-class drug",
-      "accelerated approval"
+      "accelerated approval",
+      "rare disease treatment",
+      "pharmacoeconomics"
     ],
-    "highlighted": false
+    "highlighted": true
   }
 ]
