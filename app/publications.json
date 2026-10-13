@@ -1,5 +1,18 @@
 [
   {
+    "id": 12,
+    "authors": "Castle G, Han J, Huskamp HA, et al",
+    "title": "Out-of-Pocket Savings Among Medicare Part D Beneficiaries Under the Medicare Drug Price Negotiation Program",
+    "journal": "Annals of Internal Medicine · Epub October 13, 2026",
+    "year": "2026",
+    "doi": "10.7326/ANNALS-26-02703",
+    "topics": [
+      "pharmacy benefit design",
+      "pharmacoeconomics"
+    ],
+    "highlighted": false
+  },
+  {
     "id": 11,
     "authors": "Rome BN, McIntyre A, Kim J, Han J, Kesselheim AS, Sommers BD",
     "title": "Using Prescription Drug Data for Timely Assessments of State Insurance Coverage Rates: A Validation Study",
