@@ -1,0 +1,19 @@
+---
+title: "Building and maintaining your research website"
+subtitle: "Step-by-step companion to the department seminar"
+author: "Jihye Han, PharmD, MPH"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    theme: cosmo
+    code-copy: true
+    embed-resources: true
+    css: guide.css
+---
+
+This guide accompanies the 15-minute seminar **Tips for building a personal website using AI**. The same guide appears at the end of the [Quarto slide deck](seminar.html). It uses [Jihye Han's website](https://jihyehan.com) as a concrete case study.
+
+[All files on GitHub](https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website)
+
+{{< include _guide.qmd >}}

@@ -1,0 +1,5 @@
+body { color: #142c38; }
+a { color: #006d77; }
+h1,h2,h3 { color: #142c38; }
+h2 { margin-top: 2.4rem; border-bottom: 2px solid #ccd9dc; padding-bottom: .4rem; }
+pre { border: 1px solid #ccd9dc; }

@@ -1,0 +1,268 @@
+---
+title: "Tips for building a personal website using AI"
+subtitle: "A practical guide for researchers"
+author: "Jihye Han, PharmD, MPH"
+format:
+  revealjs:
+    theme: [simple, theme.scss]
+    width: 1280
+    height: 720
+    margin: 0.07
+    slide-number: c
+    transition: none
+    center: false
+    controls: true
+    progress: true
+    history: true
+    hash: true
+    navigation-mode: linear
+    code-copy: true
+    embed-resources: true
+    pdf-separate-fragments: false
+    title-slide-attributes:
+      data-background-color: "#f0f5f6"
+---
+
+
+
+## A website that helps people find your work
+
+- **Who are you?** Your role, affiliation, and research focus.
+- **What do you study?** Questions people outside your specialty can understand.
+- **Where is the evidence?** Publications, selected work, and your CV.
+- **How can someone reach you?** Email and professional profiles.
+
+Today: **create with AI**, then **maintain it yourself**.
+
+::: {.notes}
+0:30–1:15. A visitor may be a collaborator, a hiring committee member, a journalist, or another student. Plan around the information that visitor needs. A short, accurate site is enough to start. Optional sections can wait until there is real content.
+:::
+
+## The case study: jihyehan.com
+
+:::: {.columns}
+::: {.column width="62%"}
+![](assets/home.png){.screenshot width=760 fig-alt="Homepage showing research focus, profile photo, publications and CV links"}
+:::
+::: {.column width="38%"}
+**A few deliberate choices**
+
+- Separate research, publications, and media pages
+- CV access from the main navigation
+- Email, Scholar, and LinkedIn links
+- Navy text, teal accents, generous space
+
+[Visit the website](https://jihyehan.com)
+:::
+::::
+
+::: {.notes}
+1:15–2:15. The site uses the home page to introduce the researcher, then gives research questions and publications their own space. The screenshot comes from the current repository build. The optional /cv/ page offers view and download buttons, while the main CV navigation opens the PDF directly. The design uses #142c38 text and #006d77 teal. Avoid adding empty sections just to fill a template.
+:::
+
+## Part 1: creating the website
+
+| Step | Your job | AI's job |
+|---|---|---|
+| 1. Prepare | Supply verified content | Identify missing fields |
+| 2. Specify | Choose pages and visual style | Build an editable first draft |
+| 3. Review | Check facts and try every link | Fix specific problems |
+| 4. Publish | Own the account and domain | Document the build process |
+
+**Ask for maintainable files and an editing guide in the first prompt.**
+
+::: {.notes}
+2:15–3:05. We can make the process more efficient by agreeing on structure and editing locations up front. AI can produce code, but the researcher remains responsible for the biography, publication records, and permissions to share materials. Ask the tool to explain where future edits belong before calling the site finished.
+:::
+
+## The content packet
+
+:::: {.columns}
+::: {.column width="50%"}
+**Prepare once**
+
+- Short bio and affiliation
+- 2–4 research questions
+- Verified citations and DOI links
+- Public CV and a headshot
+:::
+::: {.column width="50%"}
+**Decide once**
+
+- Essential pages and optional sections
+- Contact and profile links
+- Colors, type, and example layouts
+- Which publications to highlight
+:::
+::::
+
+::: {.small}
+Use public material. Remove private contact details and unpublished or restricted research before sharing files with an AI tool.
+:::
+
+::: {.notes}
+3:05–3:50. The resource folder contains a worksheet to assemble this packet. Optional teaching, software, datasets, and news sections are useful when there is something current to show. Keep the site's descriptions consistent with your CV. Do not ask the model to fill gaps by guessing.
+:::
+
+## A prompt that specifies the result
+
+::: {.small}
+> Build a professional academic website for a PhD researcher using the attached verified content. Create Home, Research, Publications, Media, and CV pages. Use navy `#142c38`, teal `#006d77`, a white background, readable type, and a mobile layout.
+>
+> Include DOI links, selected publications, topic filters linked from research questions, and accessible navigation. Keep publication records in one editable data file. Do not invent facts. Flag missing information.
+>
+> Deliver the source files, preview/build commands, GitHub Pages instructions, and a file-by-file editing guide. Show me how to add one paper and replace my CV without AI.
+:::
+
+[Full copy-and-paste prompt in the appendix](#a3-full-creation-prompt)
+
+::: {.notes}
+3:50–5:00. This is an abbreviated prompt. The appendix adds exact fields, interaction behavior, metadata, accessibility, and acceptance checks. Tell a coding assistant to implement the site in your project folder. If using an ordinary chat interface, ask for complete named files and instructions for saving them. Avoid repeatedly asking to make it more professional. State what needs to change and how you will judge it.
+:::
+
+## Useful features need a clear test
+
+:::: {.columns}
+::: {.column width="57%"}
+![](assets/publications.png){.screenshot width=700 fig-alt="Publication page showing selected articles and a research-topic dropdown"}
+:::
+::: {.column width="43%"}
+- **Highlights:** selected papers appear above the full list.
+- **Topic links:** a research keyword opens the matching papers.
+- **Filtering:** clearing the filter restores all papers.
+- **Small screens:** navigation and links remain usable.
+:::
+::::
+
+::: {.notes}
+5:00–6:00. Demonstrate one research keyword if there is time, or use the screenshot offline. This site has a topic dropdown, not a free-text search box. Also check browser Back, a filter with no results, the displayed article count, keyboard navigation, the PDF, and DOI destinations. AI should fix a concrete behavior, not make unrelated design changes. The full checklist lives in the guide.
+:::
+
+## Publishing and an optional domain
+
+**GitHub stores the project. GitHub Pages serves the built website.**
+
+1. Create your own `USERNAME.github.io` repository.
+2. Build the site and publish its `docs/` folder from `main`.
+3. Check the free GitHub Pages address.
+4. Optional: buy a domain through GoDaddy and connect it using DNS.
+
+::: {.small}
+For a custom domain: verify ownership, set it in GitHub Pages, add the DNS records, then enable HTTPS. Keep the domain file in the source assets.
+:::
+
+::: {.notes}
+6:00–7:10. This uses the workflow in my site: npm run build regenerates docs, then a push publishes it. A GitHub repository URL is different from the public website URL. My domain purchase happened separately through GoDaddy. A domain is optional and renews periodically. You do not need to buy GoDaddy hosting for this GitHub Pages workflow. DNS details and official links are in A8–A9. Sources: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site and https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site and https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+:::
+
+## Part 2: maintaining the website yourself
+
+| What changes? | Where you edit in this site |
+|---|---|
+| Bio, role, contact links | `app/page.tsx` |
+| Research questions | `app/research/page.tsx` |
+| Publication records | `app/publications.json` |
+| Media coverage | `app/media/page.tsx` |
+| CV PDF and headshot | `public/` |
+| Colors; shared metadata and footer | `app/globals.css`; `app/layout.tsx` |
+
+**Edit the source. The build recreates `docs/`.**
+
+::: {.notes}
+7:10–8:15. JSX files combine text and HTML-like tags. JSON holds structured publication data. CSS controls appearance. The public folder contains files that the build copies to the website. We do not edit generated docs files by hand because the next build will replace them. The case-study framework is React/TypeScript with a vinext build. Attendees can choose another framework, but their file map must match their actual project.
+:::
+
+## One new publication
+
+```json
+{
+  "id": 13,
+  "authors": "Your verified author list",
+  "title": "Your exact article title",
+  "journal": "Journal name",
+  "year": "2026",
+  "doi": "REPLACE_WITH_VERIFIED_DOI",
+  "topics": ["pharmacy benefit design"],
+  "highlighted": false
+}
+```
+
+::: {.small}
+Teaching example only. Replace the fields, use a unique ID, and insert the object into `app/publications.json`. A comma separates it from the next record.
+:::
+
+::: {.notes}
+8:15–9:30. The first existing record in this repository has ID 12, so 13 is the next example. Check your own file rather than assuming 13 is always unused. Paste the DOI identifier without https://doi.org/, since the page adds the prefix. Use straight double quotes. True and false have no quotation marks. Existing topic spelling must match exactly. Newest-first order is manual in the current code. Full instructions, validation, and a working example of a real record are in the appendix.
+:::
+
+## A CV replacement without broken links
+
+1. Export a new, public version of your CV as PDF.
+2. Replace `public/Jihye-Han-CV.pdf` using the **same filename**.
+3. Update the footer date in `app/layout.tsx`.
+4. Preview the site and open the PDF from each CV link.
+
+::: {.small}
+For your own site, choose a filename such as `Your-Name-CV.pdf` during setup. A later filename change also requires updating every link.
+:::
+
+::: {.notes}
+9:30–10:20. This is a useful first maintenance exercise. Check page count and first page so a cached PDF does not fool you. Similar logic applies to the headshot. If your affiliation changes, also update the homepage, footer, page description, and social preview metadata. These are separate copies in the case-study code.
+:::
+
+## The update routine
+
+```bash
+git status
+git pull --ff-only
+npm run dev
+```
+
+Edit one thing, check it in the browser, then stop the preview with **Ctrl+C**.
+
+```bash
+npm run lint
+npm run build
+git diff -- app/publications.json
+git add app/publications.json docs
+git commit -m "Add new publication"
+git push
+```
+
+::: {.notes}
+10:20–11:45. Run these commands from the website repository root. Start with a clean working tree, so do not pull over unfinished work. The staging line is specifically for a publication-only update. Stage every source file you changed for other tasks, plus docs. A successful build is required before pushing generated output. The guide explains each command, the GitHub Desktop equivalent, and how to check the live site after Pages finishes deploying. Do not commit node_modules or secrets.
+:::
+
+## Recovery and upkeep
+
+**If an update fails:** read the first error, check the changed file, and keep the last working version online.
+
+**If a published update is wrong:** revert its commit, check the restored files, and push the correction.
+
+**Each month:** check links, publications, affiliation, and the CV.
+
+**Before domain renewal:** check the renewal date, payment method, and account email.
+
+::: {.notes}
+11:45–13:15. Git keeps previous versions. In GitHub Desktop, History lets you revert a commit. In the terminal, git revert creates a new commit that undoes a chosen change. The appendix distinguishes a complete source-plus-docs update from a source-only update that needs a rebuild. Avoid reset --hard and force pushes in this beginner routine. Dependency upgrades are a separate maintenance task: test them separately from a small content edit. No need to ask AI to regenerate the whole website for each update.
+:::
+
+## Resources and discussion {#resources}
+
+**Your first independent update:** replace a CV or add one publication, preview it, and publish it.
+
+[GitHub resource folder](https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website)
+
+[Open the step-by-step guide](guide.html) · [Jump to the appendix](#a1-setup-and-terms)
+
+**Questions and discussion: up to 10 minutes**
+
+::: {.notes}
+13:15–15:00. Recap the split: AI helps create the first implementation, and a clear file structure makes routine edits manageable afterward. Give the audience the folder link. It includes this deck, the complete prompt, a content worksheet, maintenance checklist, and a publication validator. Leave this slide visible for questions. The remaining slides are a reference appendix, outside the 15-minute talk.
+:::
+
+# Step-by-step coding guide
+
+Take-home appendix. Also available as a [continuous reading guide](guide.html).
+
+{{< include _guide.qmd >}}
