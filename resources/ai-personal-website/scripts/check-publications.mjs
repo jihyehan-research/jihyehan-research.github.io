@@ -35,7 +35,6 @@ for (const [index, paper] of papers.entries()) {
   if (doi && dois.has(doi)) errors.push(`${label}: duplicate DOI ${paper.doi}.`);
   dois.add(doi);
   if (!Array.isArray(paper.topics) || paper.topics.some(t => typeof t !== 'string' || !t.trim())) errors.push(`${label}: topics must be an array of nonempty strings, or [].`);
-  if (typeof paper.highlighted !== 'boolean') errors.push(`${label}: highlighted must be true or false, without quotes.`);
 }
 if (errors.length) {
   console.error(errors.join('\n'));

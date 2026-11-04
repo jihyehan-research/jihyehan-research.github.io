@@ -10,7 +10,7 @@ changed and how you tested the fix.
 
 At a 390-pixel viewport, the Home page's CV and Publications buttons overlap.
 Keep both labels readable and make the buttons stack if needed. Preserve the
-navy/teal palette and keyboard focus styling. Check the layout at 390 and 1280
+charcoal/terracotta palette and keyboard focus styling. Check the layout at 390 and 1280
 pixels and report any remaining overflow.
 
 # A handover prompt
@@ -19,5 +19,5 @@ Write an EDITING-GUIDE.md for the project as it exists now. Map each routine
 update to its exact source file. Walk through adding one publication, replacing
 the CV, changing affiliation, and publishing the changes. Explain JSON commas
 and quotes, how to preview, what the build overwrites, how to check the live
-site, and how to undo a bad update. Include commands that match package.json.
+site. Include commands that match package.json.
 Do not require AI for these routine tasks.

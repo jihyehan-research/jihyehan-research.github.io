@@ -1,7 +1,9 @@
 ---
 title: "Tips for building a personal website using AI"
 subtitle: "A practical guide for researchers"
-author: "Jihye Han, PharmD, MPH"
+author: "Jihye Han"
+date: "2026-11-05"
+date-format: "MMMM D, YYYY"
 format:
   revealjs:
     theme: [simple, theme.scss]
@@ -29,7 +31,7 @@ format:
 
 - **Who are you?** Your role, affiliation, and research focus.
 - **What do you study?** Questions people outside your specialty can understand.
-- **Where is the evidence?** Publications, selected work, and your CV.
+- **Where is the evidence?** Publications and your CV.
 - **How can someone reach you?** Email and professional profiles.
 
 Today: **create with AI**, then **maintain it yourself**.
@@ -92,7 +94,7 @@ Today: **create with AI**, then **maintain it yourself**.
 - Essential pages and optional sections
 - Contact and profile links
 - Colors, type, and example layouts
-- Which publications to highlight
+- Publication order and topic labels
 :::
 ::::
 
@@ -107,9 +109,9 @@ Use public material. Remove private contact details and unpublished or restricte
 ## A prompt that specifies the result
 
 ::: {.small}
-> Build a professional academic website for a PhD researcher using the attached verified content. Create Home, Research, Publications, Media, and CV pages. Use navy `#142c38`, teal `#006d77`, a white background, readable type, and a mobile layout.
+> Build a professional academic website for a PhD researcher using the attached verified content. Create Home, Research, Publications, Media, and CV pages. Use charcoal `#292524`, terracotta `#9A3412`, and an ivory `#FFFBF5` background. Use sans-serif headings, a left sidebar on desktop, and a top menu on mobile.
 >
-> Include DOI links, selected publications, topic filters linked from research questions, and accessible navigation. Keep publication records in one editable data file. Do not invent facts. Flag missing information.
+> Include DOI links, topic filters linked from research questions, and accessible navigation. Keep publication records in one editable data file. Do not invent facts. Flag missing information.
 >
 > Deliver the source files, preview/build commands, GitHub Pages instructions, and a file-by-file editing guide. Show me how to add one paper and replace my CV without AI.
 :::
@@ -127,7 +129,7 @@ Use public material. Remove private contact details and unpublished or restricte
 ![](assets/publications.png){.screenshot width=700 fig-alt="Publication page showing selected articles and a research-topic dropdown"}
 :::
 ::: {.column width="43%"}
-- **Highlights:** selected papers appear above the full list.
+- **DOI links:** article titles open the published paper.
 - **Topic links:** a research keyword opens the matching papers.
 - **Filtering:** clearing the filter restores all papers.
 - **Small screens:** navigation and links remain usable.
@@ -135,7 +137,7 @@ Use public material. Remove private contact details and unpublished or restricte
 ::::
 
 ::: {.notes}
-5:00–6:00. Demonstrate one research keyword if there is time, or use the screenshot offline. This site has a topic dropdown, not a free-text search box. Also check browser Back, a filter with no results, the displayed article count, keyboard navigation, the PDF, and DOI destinations. AI should fix a concrete behavior, not make unrelated design changes. The full checklist lives in the guide.
+5:00–6:00. Research keywords open matching publication filters. Clearing the filter restores the list, and browser Back restores the previous selection. The article count, empty state, keyboard controls, PDF links, and DOI destinations each provide a concrete check of the finished site.
 :::
 
 ## Publishing and an optional domain
@@ -177,33 +179,32 @@ For a custom domain: verify ownership, set it in GitHub Pages, add the DNS recor
 ```json
 {
   "id": 13,
-  "authors": "Your verified author list",
-  "title": "Your exact article title",
-  "journal": "Journal name",
+  "authors": "YOUR-NAME, COAUTHOR-NAME",
+  "title": "YOUR ARTICLE TITLE",
+  "journal": "YOUR JOURNAL",
   "year": "2026",
   "doi": "REPLACE_WITH_VERIFIED_DOI",
-  "topics": ["pharmacy benefit design"],
-  "highlighted": false
+  "topics": ["health equity"]
 }
 ```
 
 ::: {.small}
-Teaching example only. Replace the fields, use a unique ID, and insert the object into `app/publications.json`. A comma separates it from the next record.
+Replace the fields, use a unique ID, and insert the object into `app/publications.json`. A comma separates it from the next record.
 :::
 
 ::: {.notes}
-8:15–9:30. The first existing record in this repository has ID 12, so 13 is the next example. Check your own file rather than assuming 13 is always unused. Paste the DOI identifier without https://doi.org/, since the page adds the prefix. Use straight double quotes. True and false have no quotation marks. Existing topic spelling must match exactly. Newest-first order is manual in the current code. Full instructions, validation, and a working example of a real record are in the appendix.
+8:15–9:30. Each record needs a unique ID. The DOI field contains the identifier without https://doi.org/, because the page adds the prefix. JSON uses straight double quotes. Topic spelling matches the dropdown options exactly. The order of records in this file determines their order on the page.
 :::
 
 ## A CV replacement without broken links
 
 1. Export a new, public version of your CV as PDF.
-2. Replace `public/Jihye-Han-CV.pdf` using the **same filename**.
+2. Replace `public/YOUR-NAME-CV.pdf` using the **same filename**.
 3. Update the footer date in `app/layout.tsx`.
 4. Preview the site and open the PDF from each CV link.
 
 ::: {.small}
-For your own site, choose a filename such as `Your-Name-CV.pdf` during setup. A later filename change also requires updating every link.
+A filename change also requires updating every link to the PDF.
 :::
 
 ::: {.notes}
@@ -230,21 +231,7 @@ git push
 ```
 
 ::: {.notes}
-10:20–11:45. Run these commands from the website repository root. Start with a clean working tree, so do not pull over unfinished work. The staging line is specifically for a publication-only update. Stage every source file you changed for other tasks, plus docs. A successful build is required before pushing generated output. The guide explains each command, the GitHub Desktop equivalent, and how to check the live site after Pages finishes deploying. Do not commit node_modules or secrets.
-:::
-
-## Recovery and upkeep
-
-**If an update fails:** read the first error, check the changed file, and keep the last working version online.
-
-**If a published update is wrong:** revert its commit, check the restored files, and push the correction.
-
-**Each month:** check links, publications, affiliation, and the CV.
-
-**Before domain renewal:** check the renewal date, payment method, and account email.
-
-::: {.notes}
-11:45–13:15. Git keeps previous versions. In GitHub Desktop, History lets you revert a commit. In the terminal, git revert creates a new commit that undoes a chosen change. The appendix distinguishes a complete source-plus-docs update from a source-only update that needs a rebuild. Avoid reset --hard and force pushes in this beginner routine. Dependency upgrades are a separate maintenance task: test them separately from a small content edit. No need to ask AI to regenerate the whole website for each update.
+10:20–14:00. Run these commands from the website repository root. Start with a clean working tree, so do not pull over unfinished work. The staging line is specifically for a publication-only update. Stage every source file you changed for other tasks, plus docs. A successful build is required before pushing generated output. The guide explains each command, the GitHub Desktop equivalent, and how to check the live site after Pages finishes deploying. Do not commit node_modules or secrets.
 :::
 
 ## Resources and discussion {#resources}
@@ -258,7 +245,7 @@ git push
 **Questions and discussion: up to 10 minutes**
 
 ::: {.notes}
-13:15–15:00. Recap the split: AI helps create the first implementation, and a clear file structure makes routine edits manageable afterward. Give the audience the folder link. It includes this deck, the complete prompt, a content worksheet, maintenance checklist, and a publication validator. Leave this slide visible for questions. The remaining slides are a reference appendix, outside the 15-minute talk.
+14:00–15:00. AI helps create the first implementation. A clear file structure makes routine updates manageable independently. The linked resources include the complete prompt, coding guide, content worksheet, update checklist, and publication validator.
 :::
 
 # Step-by-step coding guide

@@ -4,13 +4,13 @@ A **15-minute department seminar**, followed by up to **10 minutes of Q&A**, for
 
 **Share this folder:** https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website
 
-**Case study:** [Jihye Han's website](https://jihyehan.com). The source at commit `a4f9b2a` informed the examples. This resource documents the site's actual React/TypeScript, vinext, and GitHub Pages workflow. It is not a claim that this framework is the best choice for every new researcher website.
+**Case study:** [Jihye Han's website](https://jihyehan.com). The source at commit `a4f9b2a` informed the examples. The file structure and publishing workflow draw on this React/TypeScript website. The reusable examples use generic names and filenames.
 
 ## Open the materials
 
 Use GitHub's **Code > Download ZIP** at the repository root. Extract it and open `resources/ai-personal-website/`.
 
-- Open **seminar.html** in a browser to present. The first 14 slides, including the title, are the timed talk. The remaining slides form the reference appendix.
+- Open **seminar.html** in a browser to present. The first 13 slides, including the title, are the timed talk. The remaining slides form the reference appendix.
 - Open **guide.html** for a searchable, continuous guide with copyable code.
 - Keep both HTML files in the same folder for their cross-links. GitHub's file viewer shows HTML source rather than running the presentation.
 - For speaker view, use `quarto preview seminar.qmd`, then press **S**. Use **Esc** for slide overview. The notes include a 15-minute pacing plan.
@@ -22,14 +22,14 @@ Use GitHub's **Code > Download ZIP** at the repository root. Extract it and open
 | `content-worksheet.md` | Gather accurate content before prompting |
 | `prompts/create-website.md` | Full creation prompt with design, fields, behavior, and handover |
 | `prompts/refine-and-handover.md` | Focused fixes and maintenance documentation prompts |
-| `maintenance-checklist.md` | Repeatable review and upkeep checklist |
-| `examples/publication-record.json` | Existing case-study record for syntax practice |
+| `maintenance-checklist.md` | Checklist for a content update |
+| `examples/publication-record.json` | Publication record template with generic fields |
 | `scripts/check-publications.mjs` | Check JSON structure, fields, and duplicate identifiers |
 | `seminar.qmd` | Editable Quarto presentation |
 | `_guide.qmd` | Shared guide included at the end of the deck and in the handout |
 | `guide.qmd` | Continuous HTML guide wrapper |
 
-The example record is real and already appears in the case-study site. Do not add it again. Replace teaching placeholders with your own verified content. The presentation does not require attendees to copy the presenter's biography, CV, photo, or domain.
+Replace YOUR-NAME and the other template fields with your own information. Replace REPLACE_WITH_VERIFIED_DOI with a verified DOI identifier before validation. The prompt uses an ivory, charcoal, and terracotta design with sidebar navigation and a single publication list.
 
 ## Render the Quarto materials
 

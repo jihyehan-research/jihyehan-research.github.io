@@ -1,7 +1,9 @@
 ---
 title: "Building and maintaining your research website"
 subtitle: "Step-by-step companion to the department seminar"
-author: "Jihye Han, PharmD, MPH"
+author: "Jihye Han"
+date: "2026-11-05"
+date-format: "MMMM D, YYYY"
 format:
   html:
     toc: true

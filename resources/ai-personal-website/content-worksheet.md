@@ -3,7 +3,7 @@
 Fill this in before prompting an AI assistant. Supply only material suitable for sharing.
 
 ## Identity and contact
-- Name and credentials:
+- Name: YOUR-NAME
 - Role, department, institution:
 - City or region (optional):
 - Public email:
@@ -31,7 +31,6 @@ Repeat for each article, checking the publisher record:
 - Journal and year:
 - DOI identifier (no https://doi.org/ prefix):
 - Topic keywords:
-- Highlight? true / false:
 - Optional public paper/code/data URLs and sharing permissions:
 
 ## Optional pages

@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jihye Han, PharmD, MPH">
+<meta name="author" content="Jihye Han">
+<meta name="dcterms.date" content="2026-11-05">
 
 <title>Building and maintaining your research website</title>
 <style>
@@ -3098,7 +3099,7 @@ pre { border: 1px solid #ccd9dc; }
   <li><a href="#a2.-your-content-worksheet" id="toc-a2.-your-content-worksheet" class="nav-link" data-scroll-target="#a2.-your-content-worksheet">A2. Your content worksheet</a></li>
   <li><a href="#a3-full-creation-prompt" id="toc-a3-full-creation-prompt" class="nav-link" data-scroll-target="#a3-full-creation-prompt">A3. Full creation prompt</a></li>
   <li><a href="#a4.-efficient-review-prompts" id="toc-a4.-efficient-review-prompts" class="nav-link" data-scroll-target="#a4.-efficient-review-prompts">A4. Efficient review prompts</a></li>
-  <li><a href="#a5.-file-map-for-the-case-study-website" id="toc-a5.-file-map-for-the-case-study-website" class="nav-link" data-scroll-target="#a5.-file-map-for-the-case-study-website">A5. File map for the case-study website</a></li>
+  <li><a href="#a5.-website-file-map" id="toc-a5.-website-file-map" class="nav-link" data-scroll-target="#a5.-website-file-map">A5. Website file map</a></li>
   <li><a href="#a6.-first-local-preview" id="toc-a6.-first-local-preview" class="nav-link" data-scroll-target="#a6.-first-local-preview">A6. First local preview</a></li>
   <li><a href="#a7.-review-before-launch" id="toc-a7.-review-before-launch" class="nav-link" data-scroll-target="#a7.-review-before-launch">A7. Review before launch</a></li>
   <li><a href="#a8.-github-pages-setup" id="toc-a8.-github-pages-setup" class="nav-link" data-scroll-target="#a8.-github-pages-setup">A8. GitHub Pages setup</a></li>
@@ -3108,10 +3109,8 @@ pre { border: 1px solid #ccd9dc; }
   <li><a href="#a12.-cv-biography-photo-and-media-edits" id="toc-a12.-cv-biography-photo-and-media-edits" class="nav-link" data-scroll-target="#a12.-cv-biography-photo-and-media-edits">A12. CV, biography, photo, and media edits</a></li>
   <li><a href="#a13.-small-design-changes" id="toc-a13.-small-design-changes" class="nav-link" data-scroll-target="#a13.-small-design-changes">A13. Small design changes</a></li>
   <li><a href="#a14.-preview-commit-and-publish-an-update" id="toc-a14.-preview-commit-and-publish-an-update" class="nav-link" data-scroll-target="#a14.-preview-commit-and-publish-an-update">A14. Preview, commit, and publish an update</a></li>
-  <li><a href="#a15.-undo-an-update-safely" id="toc-a15.-undo-an-update-safely" class="nav-link" data-scroll-target="#a15.-undo-an-update-safely">A15. Undo an update safely</a></li>
-  <li><a href="#a16.-troubleshooting-and-a-maintenance-rhythm" id="toc-a16.-troubleshooting-and-a-maintenance-rhythm" class="nav-link" data-scroll-target="#a16.-troubleshooting-and-a-maintenance-rhythm">A16. Troubleshooting and a maintenance rhythm</a></li>
-  <li><a href="#a17.-a-short-practice-exercise" id="toc-a17.-a-short-practice-exercise" class="nav-link" data-scroll-target="#a17.-a-short-practice-exercise">A17. A short practice exercise</a></li>
-  <li><a href="#a18.-seminar-files-and-further-reading" id="toc-a18.-seminar-files-and-further-reading" class="nav-link" data-scroll-target="#a18.-seminar-files-and-further-reading">A18. Seminar files and further reading</a></li>
+  <li><a href="#a15.-a-short-practice-exercise" id="toc-a15.-a-short-practice-exercise" class="nav-link" data-scroll-target="#a15.-a-short-practice-exercise">A15. A short practice exercise</a></li>
+  <li><a href="#a16.-resources-and-further-reading" id="toc-a16.-resources-and-further-reading" class="nav-link" data-scroll-target="#a16.-resources-and-further-reading">A16. Resources and further reading</a></li>
   </ul>
 </nav>
 </div>
@@ -3130,10 +3129,16 @@ pre { border: 1px solid #ccd9dc; }
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Jihye Han, PharmD, MPH </p>
+             <p>Jihye Han </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -3147,8 +3152,6 @@ pre { border: 1px solid #ccd9dc; }
 <p><a href="https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website">All files on GitHub</a></p>
 <section id="a1-setup-and-terms" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a1-setup-and-terms">A1. Setup and terms</h2>
-<p><strong>Outcome:</strong> you know which tools you need and where commands run.</p>
-<p>The case-study site uses React/TypeScript source files and a <strong>vinext</strong> static build. This guide documents that actual workflow. Your AI-generated site may use different files and commands, so request its own editing guide. Quarto builds these seminar materials, not the case-study website.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -3183,36 +3186,29 @@ pre { border: 1px solid #ccd9dc; }
 </tr>
 </tbody>
 </table>
-<p>Install a text editor such as VS Code, <a href="https://git-scm.com/downloads">Git</a> or <a href="https://desktop.github.com/">GitHub Desktop</a>, and a supported <a href="https://nodejs.org/en/download">Node.js LTS version</a> compatible with your project. The case-study <code>package.json</code> requires Node <strong>22.13.0 or newer</strong>. Keep its lockfile to reproduce dependencies. Install <a href="https://quarto.org/docs/download/">Quarto</a> only if you want to edit/render the seminar materials.</p>
 <p>In VS Code, open the <strong>website repository folder</strong>, then <strong>Terminal &gt; New Terminal</strong>. Commands below run from that folder unless stated otherwise. On Windows, Git Bash provides a shell similar to the examples. The commands do not include a <code>$</code> prompt character.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Success check:</strong> all three commands print versions. If a command is missing, install the tool and reopen the terminal.</p>
 </section>
 <section id="a2.-your-content-worksheet" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a2.-your-content-worksheet">A2. Your content worksheet</h2>
-<p><strong>Outcome:</strong> one verified packet for the AI assistant. Copy <code>content-worksheet.md</code> from the resource folder and fill it in.</p>
 <ul>
 <li><strong>Identity:</strong> name, credentials, pronouns if wanted, current role, department, institution, city, public email.</li>
 <li><strong>Introduction:</strong> one-sentence research focus and a 100–150-word bio.</li>
 <li><strong>Research:</strong> 2–4 questions with a short explanation, methods if useful, and consistent keywords.</li>
-<li><strong>Publications:</strong> exact author order, title, journal, year, DOI, keywords, and selected highlights. Check each against the publisher record.</li>
+<li><strong>Publications:</strong> exact author order, title, journal, year, DOI, keywords, and topic labels. Check each against the publisher record.</li>
 <li><strong>Files:</strong> a public CV PDF and headshot you can share. Remove home address, private phone numbers, signatures, and other unnecessary personal details.</li>
 <li><strong>Profiles:</strong> verified Google Scholar, ORCID, GitHub, LinkedIn, or institutional profile URLs.</li>
 <li><strong>Optional evidence:</strong> media coverage with outlet/date/link, teaching, software, or public datasets. Empty sections can wait.</li>
 <li><strong>Style:</strong> colors, typography preferences, a reference layout, and mobile requirements.</li>
 </ul>
 <p>Keep unpublished manuscripts, patient data, credentials, and other restricted information out of both prompts and public repositories. Review your institution’s rules and the AI tool’s data settings before sharing research material.</p>
-<p><strong>Success check:</strong> every factual statement and link has a source you can verify. Unknown fields stay blank rather than becoming invented content.</p>
+<p><strong>Check:</strong> every factual statement and link has a source you can verify. Unknown fields stay blank rather than becoming invented content.</p>
 </section>
 <section id="a3-full-creation-prompt" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a3-full-creation-prompt">A3. Full creation prompt</h2>
-<p><strong>Outcome:</strong> an editable first draft plus a maintenance handover. Replace the bracketed identity, attach your content packet, and copy the prompt below. The standalone copy is in <code>prompts/create-website.md</code>.</p>
 <pre class="text"><code>You are helping me create and later maintain a professional academic website.
 
 CONTEXT
-I am [name, credentials, role, institution]. My audience includes researchers,
+I am YOUR-NAME, [role] at [institution]. My audience includes researchers,
 potential collaborators, and hiring committees. I am a beginner at web
 development. Use the attached content worksheet, verified publications, public
 CV, and headshot as the source of facts. Flag missing information. Do not invent
@@ -3224,42 +3220,42 @@ PAGES AND FIELDS
    email, Google Scholar, and optional ORCID, GitHub, or LinkedIn links.
 2. Research: 2–4 themes. For each, show a question, why it matters, what I study,
    and topic keywords that link to the matching publication filter.
-3. Publications: selected highlights above the full list, verified author order,
+3. Publications: one chronological list with verified author order,
    exact title, journal, year, DOI link, topic tags, and optional paper/code/data
    links only when provided and appropriate to share. Put records in one JSON
-   file with fields id, authors, title, journal, year, doi, topics, highlighted.
+   file with fields id, authors, title, journal, year, doi, topics.
    Explain the ordering rule. Bold my author name consistently if requested.
 4. Media: outlet or program, coverage title, date, link, descriptive action text,
    and an optional logo with alt text. Omit this page if I supply no coverage.
-5. CV: a stable PDF link in the navigation and an optional page with view and
-   download buttons. Tell me where to replace the file without changing links.
+5. CV: store the PDF at public/YOUR-NAME-CV.pdf and link to /YOUR-NAME-CV.pdf
+   in the navigation. Include an optional page with view and download buttons.
+   Explain how to replace the PDF.
 Optional teaching, software, datasets, or news sections should appear only when
 I supply content and ask for them.
 
 DESIGN
-Use a white background, navy text #142c38, teal accents #006d77, pale gray #f0f5f6,
-and borders #ccd9dc. Use readable body text, restrained serif headings if useful,
-generous spacing, and a compact layout. Make the site usable on a narrow phone
-and a desktop. Avoid decorative animations. Include visible keyboard focus,
+Use an ivory background #FFFBF5, charcoal text #292524, terracotta accents
+#9A3412, and warm gray borders #D6D3D1. Use sans-serif headings and body text.
+Place navigation in a left sidebar on desktop and a top menu on mobile.
+Use a wide reading column, generous spacing, and simple text links.
+Avoid decorative animations. Include visible keyboard focus,
 descriptive link labels, a skip link, labeled form controls, and image alt text.
 
 BEHAVIOR
 Include navigation with a working mobile menu. Publication filtering must
 support an All topics option, a clear-filter action, a result count, and an
 empty state. Store the topic in a ?topic= URL parameter so research links can
-open it directly. Browser Back must restore the preceding filter. Highlights
-should show with All topics. Keep topic spellings consistent across files.
+open it directly. Browser Back must restore the preceding filter.
+Keep topic spellings consistent across files.
 Include accurate page titles, descriptions, and a social-sharing image.
 
 IMPLEMENTATION AND OWNERSHIP
 Inspect the existing project before changing its framework. For a new project,
 propose a simple static-compatible approach and explain the maintenance tradeoff.
-The reference site uses React/TypeScript with vinext, editable app/ files,
-public/ assets, and a build that generates docs/ for GitHub Pages. Its framework
-is a case study, not a requirement for every new site. Do not assume an ordinary
-server-dependent React app can run on GitHub Pages.
+Use editable page files in app/, assets in public/, and a static build that
+generates docs/ for GitHub Pages. Document any differences in the final file map.
+The published site must work without a Node server.
 Use one repository that I own. Keep content separate from layout where practical.
-Do not copy the reference researcher&#39;s identity, CV, photo, domain, or credentials.
 Do not embed passwords, tokens, private data, or paid services I did not request.
 
 DELIVERABLES
@@ -3271,7 +3267,7 @@ complete named files and instructions for saving them. Provide:
 - GitHub Pages setup for my USERNAME.github.io repository using main /docs;
 - instructions to add a publication, change a topic, replace the CV, update my
   affiliation, and change a color without AI;
-- a safe commit/push routine and a way to undo a published update.
+- a clear commit/push routine for publishing content updates.
 
 ACCEPTANCE CHECKS
 Check the build, every page and CV link, DOI destinations, phone-width layout,
@@ -3282,7 +3278,6 @@ after I can locate the file for one publication edit and one CV replacement.</co
 </section>
 <section id="a4.-efficient-review-prompts" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a4.-efficient-review-prompts">A4. Efficient review prompts</h2>
-<p><strong>Outcome:</strong> focused improvements that preserve working parts of the site.</p>
 <p>Work in stages: first approve the content structure, then inspect the implementation, then test it. For each revision, name the page, current behavior, desired behavior, and what should stay stable.</p>
 <blockquote class="blockquote">
 <p>On the Publications page, research-topic links should open the matching filter. Currently the dropdown resets to All topics. Preserve the design and existing records. Fix URL-based filtering, then test a direct topic link, Clear filter, and browser Back. Explain which files changed.</p>
@@ -3292,13 +3287,13 @@ after I can locate the file for one publication edit and one CV replacement.</co
 </blockquote>
 <p>Before handover, ask:</p>
 <blockquote class="blockquote">
-<p>Map every routine edit to an exact source file. Show a complete example of adding a publication and replacing the CV. Explain how to preview, build, commit, push, and undo a bad update. Match the actual package.json commands.</p>
+<p>Map every routine edit to an exact source file. Show a complete example of adding a publication and replacing the CV. Explain how to preview, build, commit, and push. Match the actual package.json commands.</p>
 </blockquote>
-<p><strong>Success check:</strong> you can do a small content update using that guide, without asking AI to rebuild the site.</p>
+<p><strong>Check:</strong> you can do a small content update using that guide, without asking AI to rebuild the site.</p>
 </section>
-<section id="a5.-file-map-for-the-case-study-website" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="a5.-file-map-for-the-case-study-website">A5. File map for the case-study website</h2>
-<p><strong>Outcome:</strong> you edit the correct source file. Paths below are relative to the website repository root.</p>
+<section id="a5.-website-file-map" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="a5.-website-file-map">A5. Website file map</h2>
+<p>Paths below are relative to the website repository root. Match the filenames to your own project.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -3324,7 +3319,7 @@ after I can locate the file for one publication edit and one CV replacement.</co
 <td><code>app/publications.json</code></td>
 </tr>
 <tr class="even">
-<td>Allowed topics, filtering, highlights, author emphasis</td>
+<td>Allowed topics, filtering, author emphasis</td>
 <td><code>app/publications/publication-browser.tsx</code></td>
 </tr>
 <tr class="odd">
@@ -3366,39 +3361,35 @@ after I can locate the file for one publication edit and one CV replacement.</co
 </tbody>
 </table>
 <p><code>npm run build</code> runs the build plus <code>postbuild</code>. The postbuild script prepares routes and <strong>replaces the entire <code>docs/</code> folder</strong>. Edit <code>app/</code> and <code>public/</code>, then rebuild. Do not put hand-maintained resources only in <code>docs/</code>.</p>
-<p>The seminar lives in <code>resources/ai-personal-website/</code>, safely outside that generated folder. Its GitHub folder URL is a resource link, not a GitHub Pages route.</p>
 </section>
 <section id="a6.-first-local-preview" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a6.-first-local-preview">A6. First local preview</h2>
-<p><strong>Outcome:</strong> the project runs on your computer before you publish it.</p>
-<p>For a new website, create an empty project folder in your editor and let your coding assistant generate the agreed files there. Follow its setup instructions. Do not paste this researcher’s entire identity into your own site.</p>
+<p>For a new website, open an empty project folder in your editor. Ask the AI assistant to create the agreed files there and provide the setup commands.</p>
 <p>For an existing repository that you own, clone it with GitHub Desktop, or replace <code>USERNAME</code> in:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/USERNAME/USERNAME.github.io.git</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> USERNAME.github.io</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/USERNAME/USERNAME.github.io.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> USERNAME.github.io</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>npm ci</code> installs the versions in an existing <code>package-lock.json</code>. If your new generated project does not yet have a lockfile, follow its documented first-install step, usually <code>npm install</code>, and commit the resulting lockfile. Do not mix dependency managers.</p>
 <p>Open the local address printed in the terminal. Save a source edit and check the page. Use <strong>Ctrl+C</strong> in the terminal to stop the server. A local preview is only visible on your computer unless you deliberately expose it.</p>
-<p>The case study’s <code>npm run dev</code>, <code>npm run lint</code>, and <code>npm run build</code> commands come from its <code>package.json</code>. A different framework may use different commands or output directories.</p>
-<p><strong>Success check:</strong> Home, Research, Publications, Media, and the CV all load in the local preview. Review the first terminal error if they do not.</p>
+<p>The <code>scripts</code> section of <code>package.json</code> defines the available commands. Match the preview and build commands to your project.</p>
+<p><strong>Check:</strong> Home, Research, Publications, Media, and the CV all load in the local preview. Review the first terminal error if they do not.</p>
 </section>
 <section id="a7.-review-before-launch" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a7.-review-before-launch">A7. Review before launch</h2>
-<p><strong>Outcome:</strong> a site visitors can actually use. Use <code>maintenance-checklist.md</code> for a reusable checklist.</p>
 <ol type="1">
 <li>Read every factual claim, including page titles, affiliation, and footer. Check author order, article status, and DOI destinations against source records.</li>
 <li>Open every navigation, contact, profile, media, and CV link. A citation can be correct while its URL is wrong.</li>
 <li>Open a research keyword. Confirm the publication filter selects the same topic. Clear it, try another topic, and use browser Back.</li>
-<li>Check highlights, result count, and a topic with no results. The current case study filters by topic; it does <strong>not</strong> have free-text publication search.</li>
+<li>Check the result count and the message shown for a topic with no results.</li>
 <li>Narrow the browser to phone width. Check long titles and menu controls for overflow. Use Tab and Enter to navigate without a mouse.</li>
 <li>Confirm image alt text and visible keyboard focus. Open the CV and confirm it is the intended version.</li>
 <li>Run <code>npm run lint</code> and <code>npm run build</code>. Investigate failures before publishing.</li>
 </ol>
-<p><strong>Success check:</strong> no unresolved placeholders, broken internal links, build failures, or unreadable mobile content remain. Keep screenshots for your own comparison if useful.</p>
+<p><strong>Check:</strong> no unresolved placeholders, broken internal links, build failures, or unreadable mobile content remain. Keep screenshots for your own comparison if useful.</p>
 </section>
 <section id="a8.-github-pages-setup" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a8.-github-pages-setup">A8. GitHub Pages setup</h2>
-<p><strong>Outcome:</strong> your site works at <code>https://USERNAME.github.io</code>.</p>
 <ol type="1">
 <li>On GitHub, create your own public repository named <code>USERNAME.github.io</code>, replacing <code>USERNAME</code> with your account name. If one already exists, inspect and back it up rather than replacing it blindly.</li>
 <li>Clone it with GitHub Desktop. Put the generated <strong>source project</strong> in that clone. Do not copy another project’s <code>.git</code> folder, <code>node_modules</code>, or private files.</li>
@@ -3413,12 +3404,11 @@ after I can locate the file for one publication edit and one CV replacement.</co
 </section>
 <section id="a9.-optional-godaddy-domain" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a9.-optional-godaddy-domain">A9. Optional GoDaddy domain</h2>
-<p><strong>Outcome:</strong> your own address opens the site over HTTPS.</p>
-<p>The presenter purchased <code>jihyehan.com</code> separately through GoDaddy. For your site, search for an available domain, review the purchase and renewal costs, and register it in an account you control. Set a renewal reminder and keep the account email current. The GitHub Pages workflow does not require a separate GoDaddy hosting purchase.</p>
+<p>Search GoDaddy for a domain such as <code>YOUR-NAME.com</code>, review the purchase and renewal costs, and register it in your own account. GitHub Pages provides the hosting, so a separate GoDaddy hosting purchase is unnecessary.</p>
 <ol type="1">
 <li>Verify ownership in <strong>GitHub account Settings &gt; Pages &gt; Add a domain</strong> using GitHub’s provided TXT record. Add that record in your DNS provider and complete verification. Keep it afterward.</li>
 <li>Add your domain in the <strong>repository Settings &gt; Pages &gt; Custom domain</strong> field before changing website DNS records.</li>
-<li>If GoDaddy manages your nameservers, edit DNS there. Otherwise use the provider that manages your DNS. For an apex domain such as <code>yourname.com</code>, the GitHub Pages A records are:</li>
+<li>If GoDaddy manages your nameservers, edit DNS there. Otherwise use the provider that manages your DNS. For an apex domain such as <code>YOUR-NAME.com</code>, the GitHub Pages A records are:</li>
 </ol>
 <table class="caption-top table">
 <thead>
@@ -3458,205 +3448,123 @@ after I can locate the file for one publication edit and one CV replacement.</co
 </table>
 <ol start="4" type="1">
 <li>Use your own GitHub username. Values have no <code>https://</code> or path. Replace conflicting website records carefully, preserving email and verification records. Avoid wildcard records. Recheck GitHub’s current instructions before changing DNS.</li>
-<li>In this source/build arrangement, keep the domain in <code>public/CNAME</code> as one line, such as <code>yourname.com</code>. Confirm the build copies it into <code>docs/CNAME</code>. Otherwise a rebuild can erase a domain file added only to generated output.</li>
+<li>In this source/build arrangement, keep the domain in <code>public/CNAME</code> as one line, such as <code>YOUR-NAME.com</code>. Confirm the build copies it into <code>docs/CNAME</code>. Otherwise a rebuild can erase a domain file added only to generated output.</li>
 <li>Allow time for DNS and certificate provisioning. Enable <strong>Enforce HTTPS</strong> when GitHub offers it, then test both the apex and <code>www</code> address. GitHub notes DNS changes can take up to 24 hours.</li>
 </ol>
-<p><strong>Case-study-specific detail:</strong> <code>scripts/prepare-static.mjs</code> currently checks for <code>jihyehan.com</code>. If you adapt that code, change its domain check along with <code>public/CNAME</code>, or make the check optional when using only the free GitHub address. Also replace the absolute domain in <code>app/layout.tsx</code> metadata. Do not connect someone else’s domain.</p>
+<p>Use your own domain consistently in <code>public/CNAME</code>, any domain checks in <code>scripts/prepare-static.mjs</code>, and the absolute URLs in <code>app/layout.tsx</code>. If using only the free GitHub Pages address, leave out the custom-domain file and make the build’s custom-domain check optional.</p>
 <p>Sources: <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">verify ownership</a>, <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">GitHub domain and DNS configuration</a>, <a href="https://www.godaddy.com/help/manage-dns-records-680">GoDaddy DNS management</a>.</p>
 </section>
 <section id="a10.-add-a-publication-without-ai" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a10.-add-a-publication-without-ai">A10. Add a publication without AI</h2>
-<p><strong>Outcome:</strong> a verified article appears in the full list and the correct filters.</p>
 <ol type="1">
 <li>Open <code>app/publications.json</code>. It is an array, enclosed by <code>[</code> and <code>]</code>, containing one <code>{ ... }</code> object per article.</li>
 <li>Duplicate one complete object. Give the copy an unused numeric <code>id</code>. Replace every bibliographic field with the verified record. Use the DOI identifier only, without <code>https://doi.org/</code>.</li>
 <li>Insert it at the intended position. <strong>The current code preserves file order; it does not sort by year.</strong> Put newer entries earlier if you want newest-first order.</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">13</span><span class="fu">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;authors&quot;</span><span class="fu">:</span> <span class="st">&quot;Your verified author list&quot;</span><span class="fu">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;Your exact article title&quot;</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;journal&quot;</span><span class="fu">:</span> <span class="st">&quot;Journal name&quot;</span><span class="fu">,</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;year&quot;</span><span class="fu">:</span> <span class="st">&quot;2026&quot;</span><span class="fu">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;doi&quot;</span><span class="fu">:</span> <span class="st">&quot;REPLACE_WITH_VERIFIED_DOI&quot;</span><span class="fu">,</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;pharmacy benefit design&quot;</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;highlighted&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is a teaching placeholder, not a real publication. The resource folder also includes <code>examples/publication-record.json</code>, a real existing record for syntax practice. Do not insert it again into the case-study site, where it already exists.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">13</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;authors&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR-NAME, COAUTHOR-NAME&quot;</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR ARTICLE TITLE&quot;</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;journal&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR JOURNAL&quot;</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;year&quot;</span><span class="fu">:</span> <span class="st">&quot;2026&quot;</span><span class="fu">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;doi&quot;</span><span class="fu">:</span> <span class="st">&quot;REPLACE_WITH_VERIFIED_DOI&quot;</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li>Put a comma <strong>between</strong> adjacent objects: <code>},</code> followed by <code>{</code>. Do not add a comma after the last object. JSON requires straight double quotes, no comments, and lowercase <code>true</code> / <code>false</code> without quotes. Escape a quotation mark inside text as <code>\&quot;</code>.</li>
-<li>Set <code>highlighted</code> to <code>true</code> only for a small selection you want to feature. Topic strings must match the allowed list exactly.</li>
+<li>Match topic strings to the filter options exactly.</li>
 <li>From the website root, validate:</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run lint</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run lint</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you copied only the script into your own project, use its actual location and pass your JSON path as the first argument. The validator checks data structure and duplicates. It cannot verify authorship, citation accuracy, or whether a DOI resolves.</p>
-<p><strong>Success check:</strong> preview the article, click its DOI, select each assigned topic, and confirm the highlight behavior. Then follow A14 to publish.</p>
+<p><strong>Check:</strong> preview the article, click its DOI, select each assigned topic. Then follow A14 to publish.</p>
 </section>
 <section id="a11.-topics-and-linked-research-questions" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a11.-topics-and-linked-research-questions">A11. Topics and linked research questions</h2>
-<p><strong>Outcome:</strong> clicking a research keyword opens the matching publications.</p>
-<p>The case study stores topics in three places. To introduce a new one, update all three:</p>
+<p>Keep a new topic consistent in all three locations:</p>
 <ol type="1">
 <li>Add the exact text to the <code>topics</code> array in <code>app/publications/publication-browser.tsx</code>.</li>
 <li>Assign the same text in the relevant records in <code>app/publications.json</code>.</li>
 <li>Add the keyword link in <code>app/research/page.tsx</code> with an encoded query value.</li>
 </ol>
-<p>For the teaching topic <strong>health equity</strong>:</p>
+<p>For a topic named <strong>health equity</strong>:</p>
 <pre class="tsx"><code>// Add this string to the existing topics array:
 &#39;health equity&#39;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;topics&quot;:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;topics&quot;:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="tsx"><code>&lt;a href=&quot;/publications/?topic=health%20equity&quot;&gt;
   health equity
 &lt;/a&gt;</code></pre>
 <p>The snippets show fields or fragments, not complete files. Keep the surrounding array commas and tags intact. <code>%20</code> represents a space in a URL. For more complex topic text, use JavaScript’s <code>encodeURIComponent</code> rather than guessing the URL encoding.</p>
-<p><strong>Success check:</strong> click the keyword, check the selected dropdown, test Clear filter, and press browser Back. A topic unknown to the current allowed list falls back to All topics. A valid topic with no tagged papers shows the empty state.</p>
-<p>When adapting the site, also change the hardcoded <code>Han J</code> author-emphasis logic in <code>publication-browser.tsx</code> to match your own citation name. This detail is separate from the author list stored in JSON.</p>
+<p><strong>Check:</strong> click the keyword, check the selected dropdown, test Clear filter, and press browser Back. A topic unknown to the current allowed list falls back to All topics. A valid topic with no tagged papers shows the empty state.</p>
+<p>If author names use bold styling, match the name in <code>publication-browser.tsx</code> to the exact citation form of YOUR-NAME in the JSON records.</p>
 </section>
 <section id="a12.-cv-biography-photo-and-media-edits" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a12.-cv-biography-photo-and-media-edits">A12. CV, biography, photo, and media edits</h2>
-<p><strong>Outcome:</strong> visitors see current information and working files.</p>
-<p><strong>CV:</strong> export a public PDF and replace <code>public/Jihye-Han-CV.pdf</code> with the same filename in the case study. For your own site, use your chosen filename. Check Home, navigation, and <code>/cv/</code>. If renaming it, search the whole project for the old filename and update source references before building.</p>
+<p><strong>CV:</strong> export a public PDF and replace <code>public/YOUR-NAME-CV.pdf</code> using the same filename. Check Home, navigation, and <code>/cv/</code>. If renaming it, search the whole project for the old filename and update source references before building.</p>
 <p><strong>Biography:</strong> edit visible text inside the existing tags in <code>app/page.tsx</code>:</p>
-<pre class="tsx"><code>&lt;p&gt;I am a PhD student in Health Policy at
-  &lt;a href=&quot;https://www.example.edu/&quot;&gt;Example University&lt;/a&gt;.
+<pre class="tsx"><code>&lt;p&gt;I am YOUR-NAME, a PhD student in YOUR-FIELD at{&quot; &quot;}
+  &lt;a href=&quot;https://www.example.edu/&quot;&gt;YOUR-INSTITUTION&lt;/a&gt;.
 &lt;/p&gt;</code></pre>
-<p>Replace the example URL and add a space where needed in the rendered sentence. Keep opening and closing tags paired. This is a teaching example, not a claim about an actual institution. For an affiliation change, also update footer and description/social metadata in <code>app/layout.tsx</code> and any CV references.</p>
-<p><strong>Photo:</strong> replace the image in <code>public/</code> and keep its path consistent with <code>app/page.tsx</code> and <code>app/layout.tsx</code>. Update alt text and image dimensions if they change. The case study uses the headshot for shared-link previews too.</p>
+<p>Use your institution’s actual URL. The <code>{&quot; &quot;}</code> preserves a space before the link. Keep opening and closing tags paired. For an affiliation change, also update footer and description/social metadata in <code>app/layout.tsx</code> and any CV references.</p>
+<p><strong>Photo:</strong> replace the image in <code>public/</code> and keep its path consistent with <code>app/page.tsx</code> and <code>app/layout.tsx</code>. Update alt text and image dimensions if they change. Check the image used for shared-link previews too.</p>
 <p><strong>Media:</strong> duplicate an existing <code>&lt;article&gt;</code> in <code>app/media/page.tsx</code>. Change the outlet, destination, action label, and date together. Use a machine-readable date such as:</p>
-<pre class="tsx"><code>&lt;time dateTime=&quot;2026-11-04&quot;&gt;November 4, 2026&lt;/time&gt;</code></pre>
+<pre class="tsx"><code>&lt;time dateTime=&quot;2026-11-05&quot;&gt;November 5, 2026&lt;/time&gt;</code></pre>
 <p>If using a new logo, place the permitted image in <code>public/</code> and update <code>src</code>, dimensions, and alt text. Update the visible footer date in <code>app/layout.tsx</code> after meaningful changes.</p>
-<p><strong>Success check:</strong> read the rendered text, open the PDF, and inspect both desktop and mobile views. A private/incognito window helps detect a cached PDF.</p>
+<p><strong>Check:</strong> read the rendered text, open the PDF, and inspect both desktop and mobile views. A private/incognito window helps detect a cached PDF.</p>
 </section>
 <section id="a13.-small-design-changes" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a13.-small-design-changes">A13. Small design changes</h2>
-<p><strong>Outcome:</strong> a controlled style adjustment that preserves readability.</p>
 <p>Open <code>app/globals.css</code> and locate the existing <code>:root</code> variables. Change values there rather than adding a second conflicting block:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">--background</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--foreground</span><span class="ch">:</span> <span class="cn">#142c38</span><span class="op">;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--primary</span><span class="ch">:</span> <span class="cn">#006d77</span><span class="op">;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--border</span><span class="ch">:</span> <span class="cn">#ccd9dc</span><span class="op">;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">--muted</span><span class="ch">:</span> <span class="cn">#f0f5f6</span><span class="op">;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">--background</span><span class="ch">:</span> <span class="cn">#FFFBF5</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--foreground</span><span class="ch">:</span> <span class="cn">#292524</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--primary</span><span class="ch">:</span> <span class="cn">#9A3412</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--border</span><span class="ch">:</span> <span class="cn">#D6D3D1</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">--muted</span><span class="ch">:</span> <span class="cn">#F5F0E8</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this file, some styles also use literal color values. A variable change may not recolor every element. Use editor search to find the old hex value, review each match, and change only the intended rules.</p>
-<p>Edit one property at a time. Save, inspect the browser, and undo if the result is poor. Check link visibility, keyboard focus, and contrast on white and pale backgrounds. Do not rely on color alone to distinguish important states.</p>
-<p><strong>Success check:</strong> long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.</p>
+<p>Edit one property at a time. Save and inspect the browser before making another change. Check link visibility, keyboard focus, and contrast on white and pale backgrounds. Do not rely on color alone to distinguish important states.</p>
+<p><strong>Check:</strong> long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.</p>
 </section>
 <section id="a14.-preview-commit-and-publish-an-update" class="level2 scrollable">
 <h2 class="scrollable anchored" data-anchor-id="a14.-preview-commit-and-publish-an-update">A14. Preview, commit, and publish an update</h2>
-<p><strong>Outcome:</strong> a reviewed local change reaches the public site with its source and output together.</p>
 <p>Start in the website root with no unfinished changes:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If <code>git status</code> shows work you have not finished, resolve that work before pulling. If the fast-forward pull fails, inspect the divergence instead of force-pushing. Edit your file, check the local page, and stop the server with <strong>Ctrl+C</strong>.</p>
 <p>For a publication-only edit:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run lint</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--</span> app/publications.json</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add app/publications.json docs</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="at">--stat</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Add new publication&quot;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The build must finish successfully. <code>git add</code> selects the files for the commit. For a CV replacement and date update, use <code>git add public/Jihye-Han-CV.pdf app/layout.tsx docs</code> instead. For topic changes, include both the browser component and research page as well. Review the staged files before committing.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run lint</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--</span> app/publications.json</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add app/publications.json docs</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="at">--stat</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Add new publication&quot;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The build must finish successfully. <code>git add</code> selects the files for the commit. For a CV replacement and date update, use <code>git add public/YOUR-NAME-CV.pdf app/layout.tsx docs</code> instead. For topic changes, include both the browser component and research page as well. Review the staged files before committing.</p>
 <p><strong>GitHub Desktop equivalent:</strong> Fetch/Pull when clean, edit and preview in your editor, run the validation/build commands in its terminal, review Changes, select the changed source files and <code>docs/</code>, enter a descriptive summary, Commit to main, then Push origin. Desktop replaces the Git commands, not the build.</p>
 <p>After pushing, check the Pages deployment and test the <strong>live</strong> URL. Refresh the affected page and PDF. A successful local preview alone does not prove publication succeeded.</p>
 </section>
-<section id="a15.-undo-an-update-safely" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="a15.-undo-an-update-safely">A15. Undo an update safely</h2>
-<p><strong>Outcome:</strong> the last working content returns without rewriting shared history.</p>
-<p><strong>Before committing:</strong> use the editor’s Undo for an accidental edit. In GitHub Desktop, inspect the diff before discarding a specific unwanted file change. Discarding removes uncommitted work, so do not use it on edits you still need.</p>
-<p><strong>After publishing:</strong> start with a clean working tree, pull current changes, and inspect recent commits:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Choose the commit to undo. Replace <code>COMMIT_HASH</code> below with that actual hash:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="at">--no-edit</span> COMMIT_HASH</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show <span class="at">--stat</span> <span class="at">--oneline</span> HEAD</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This straightforward case assumes the chosen update is the latest relevant content change and its commit contains <strong>both source and generated <code>docs/</code></strong>. The revert then restores both. In GitHub Desktop, find the commit in History, choose <strong>Revert changes in commit</strong>, review, and push.</p>
-<p>If the original commit changed only source, restore the source, run the checks and build, then commit the regenerated <code>docs/</code> before pushing. If the revert reports conflicts, stop and inspect the affected files. <code>git revert --abort</code> cancels an in-progress conflicted revert. Do not use <code>reset --hard</code> or force push as the routine recovery method.</p>
-<p><strong>Success check:</strong> the Pages deployment completes and the live site shows the intended restored content. Check later edits if reverting an older commit.</p>
-</section>
-<section id="a16.-troubleshooting-and-a-maintenance-rhythm" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="a16.-troubleshooting-and-a-maintenance-rhythm">A16. Troubleshooting and a maintenance rhythm</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Symptom</th>
-<th>First check</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>JSON error</td>
-<td>Missing comma, extra final comma, curly quotes, or an unescaped quote</td>
-</tr>
-<tr class="even">
-<td>New article absent</td>
-<td>Correct source file, successful build, <code>docs/</code> committed, deployment complete</td>
-</tr>
-<tr class="odd">
-<td>Topic link shows All topics</td>
-<td>Exact spelling in allowed topics, record tags, and URL parameter</td>
-</tr>
-<tr class="even">
-<td>Only homepage works</td>
-<td>Exported route directories and direct URL refresh behavior</td>
-</tr>
-<tr class="odd">
-<td>Old CV opens</td>
-<td>Correct filename, rebuilt output, browser cache</td>
-</tr>
-<tr class="even">
-<td>Local site works but live site fails</td>
-<td>Pages branch/folder, deployment logs, missing output files</td>
-</tr>
-<tr class="odd">
-<td>Domain/HTTPS fails</td>
-<td>GitHub domain setting, current DNS records, retained CNAME, provisioning time</td>
-</tr>
-<tr class="even">
-<td><code>npm ci</code> fails</td>
-<td>Supported Node version and consistency of package.json with the lockfile</td>
-</tr>
-</tbody>
-</table>
-<p>For build errors, read the first useful error and its filename/line number. Fix one cause at a time. Do not publish a failed build or overwrite the whole project to solve a single syntax error.</p>
-<p><strong>After each paper, role change, or talk:</strong> update the affected content and CV.</p>
-<p><strong>Monthly:</strong> check links, research descriptions, publication highlights, contact information, and the public CV.</p>
-<p><strong>Periodically:</strong> review dependency updates in a separate branch or copy, read upgrade notes, and rerun checks before publishing. Keep the project and account recovery information accessible to you.</p>
-<p><strong>Before renewal:</strong> check domain expiry, payment details, and the email that receives registrar notices.</p>
-</section>
-<section id="a17.-a-short-practice-exercise" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="a17.-a-short-practice-exercise">A17. A short practice exercise</h2>
-<p><strong>Outcome:</strong> one routine update without AI. Work in your own site, or in a local practice copy of the case study. Do not push practice changes to the presenter’s repository.</p>
+<section id="a15.-a-short-practice-exercise" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="a15.-a-short-practice-exercise">A15. A short practice exercise</h2>
+<p>Use your own website project for a small content update.</p>
 <ol type="1">
-<li>Find one publication in the JSON file and identify its title, DOI, topics, and highlight flag.</li>
-<li>Toggle <code>highlighted</code> locally. Preview the All topics view and a filtered view.</li>
-<li>Undo that practice edit.</li>
-<li>For your real site, replace your CV using the same filename. Update the footer date, preview, and open the PDF.</li>
-<li>Run checks and build. Review the diff and identify the source changes versus generated files.</li>
-<li>Publish to your own repository only when the update is real and accurate.</li>
+<li>Open <code>app/publications.json</code> and locate the title, DOI, and topics of one article.</li>
+<li>Add a verified publication or correct an existing entry. Preview the full list and the relevant topic filter.</li>
+<li>Replace <code>public/YOUR-NAME-CV.pdf</code> with your updated CV. Keep the filename unchanged.</li>
+<li>Update the footer date and open the PDF from the preview.</li>
+<li>Run checks and build. Review the source changes and generated files.</li>
+<li>Commit and push to your repository, then check the live page.</li>
 </ol>
-<p>You are ready to maintain the site when you can answer: <strong>Which file do I edit? How do I check it? What do I commit? How do I undo it?</strong></p>
+<p><strong>Which file do I edit? How do I check it? What do I commit?</strong></p>
 </section>
-<section id="a18.-seminar-files-and-further-reading" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="a18.-seminar-files-and-further-reading">A18. Seminar files and further reading</h2>
+<section id="a16.-resources-and-further-reading" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="a16.-resources-and-further-reading">A16. Resources and further reading</h2>
 <p>The <a href="https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website">GitHub resource folder</a> contains the deck source, this shared appendix, rendered HTML, prompts, a worksheet, examples, and a validator. Download the repository ZIP through GitHub’s <strong>Code &gt; Download ZIP</strong>, then open this resource folder. GitHub shows HTML source rather than presenting the deck inline, so download and open <code>seminar.html</code> locally.</p>
-<p>To edit the seminar, install Quarto, open a terminal in <code>resources/ai-personal-website/</code>, and run:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview seminar.qmd</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>quarto render</code> creates <code>seminar.html</code> and <code>guide.html</code>. Keep them together so the guide/deck links work. Edit <code>_guide.qmd</code> once to update both the slide appendix and continuous guide. Press <strong>S</strong> for speaker view while serving the presentation with <code>quarto preview</code>, and <strong>Esc</strong> for the slide overview. The first 14 slides are the 15-minute talk, including the title. The appendix is optional reference material.</p>
-<p>To export a PDF for sharing, open print view with <strong>E</strong>, then print to PDF in landscape with no margins and background graphics enabled. Inspect page breaks, especially the long reference appendix, before distributing it.</p>
 <p>Official references, checked November 4, 2026:</p>
 <ul>
 <li><a href="https://quarto.org/docs/presentations/revealjs/">Quarto Revealjs presentations</a> and <a href="https://quarto.org/docs/presentations/revealjs/presenting.html">presenting/printing</a></li>
@@ -3665,7 +3573,6 @@ after I can locate the file for one publication edit and one CV replacement.</co
 <li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Domain verification</a> and <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">custom-domain configuration</a></li>
 <li><a href="https://www.godaddy.com/help/manage-dns-records-680">GoDaddy DNS records</a></li>
 </ul>
-<p>Case-study source: the repository’s website implementation at commit <code>a4f9b2a</code>. The screenshots and editing paths reflect that implementation. Optional features in the prompt are suggestions, not claims that every feature already exists on the case-study site.</p>
 </section>
 
 </main>

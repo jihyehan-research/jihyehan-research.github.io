@@ -1,9 +1,5 @@
 ## A1. Setup and terms {#a1-setup-and-terms .scrollable}
 
-**Outcome:** you know which tools you need and where commands run.
-
-The case-study site uses React/TypeScript source files and a **vinext** static build. This guide documents that actual workflow. Your AI-generated site may use different files and commands, so request its own editing guide. Quarto builds these seminar materials, not the case-study website.
-
 | Term | Meaning here |
 |---|---|
 | Repository | The project folder plus its version history on GitHub |
@@ -13,26 +9,15 @@ The case-study site uses React/TypeScript source files and a **vinext** static b
 | Commit / push | Save a version locally / send it to GitHub |
 | Domain / DNS | Your address / the records connecting it to your host |
 
-Install a text editor such as VS Code, [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/), and a supported [Node.js LTS version](https://nodejs.org/en/download) compatible with your project. The case-study `package.json` requires Node **22.13.0 or newer**. Keep its lockfile to reproduce dependencies. Install [Quarto](https://quarto.org/docs/download/) only if you want to edit/render the seminar materials.
-
 In VS Code, open the **website repository folder**, then **Terminal > New Terminal**. Commands below run from that folder unless stated otherwise. On Windows, Git Bash provides a shell similar to the examples. The commands do not include a `$` prompt character.
 
-```bash
-node --version
-npm --version
-git --version
-```
-
-**Success check:** all three commands print versions. If a command is missing, install the tool and reopen the terminal.
 
 ## A2. Your content worksheet {.scrollable}
-
-**Outcome:** one verified packet for the AI assistant. Copy `content-worksheet.md` from the resource folder and fill it in.
 
 - **Identity:** name, credentials, pronouns if wanted, current role, department, institution, city, public email.
 - **Introduction:** one-sentence research focus and a 100–150-word bio.
 - **Research:** 2–4 questions with a short explanation, methods if useful, and consistent keywords.
-- **Publications:** exact author order, title, journal, year, DOI, keywords, and selected highlights. Check each against the publisher record.
+- **Publications:** exact author order, title, journal, year, DOI, keywords, and topic labels. Check each against the publisher record.
 - **Files:** a public CV PDF and headshot you can share. Remove home address, private phone numbers, signatures, and other unnecessary personal details.
 - **Profiles:** verified Google Scholar, ORCID, GitHub, LinkedIn, or institutional profile URLs.
 - **Optional evidence:** media coverage with outlet/date/link, teaching, software, or public datasets. Empty sections can wait.
@@ -40,17 +25,13 @@ git --version
 
 Keep unpublished manuscripts, patient data, credentials, and other restricted information out of both prompts and public repositories. Review your institution's rules and the AI tool's data settings before sharing research material.
 
-**Success check:** every factual statement and link has a source you can verify. Unknown fields stay blank rather than becoming invented content.
+**Check:** every factual statement and link has a source you can verify. Unknown fields stay blank rather than becoming invented content.
 
 ## A3. Full creation prompt {#a3-full-creation-prompt .scrollable}
-
-**Outcome:** an editable first draft plus a maintenance handover. Replace the bracketed identity, attach your content packet, and copy the prompt below. The standalone copy is in `prompts/create-website.md`.
 
 {{< include prompts/create-website.md >}}
 
 ## A4. Efficient review prompts {.scrollable}
-
-**Outcome:** focused improvements that preserve working parts of the site.
 
 Work in stages: first approve the content structure, then inspect the implementation, then test it. For each revision, name the page, current behavior, desired behavior, and what should stay stable.
 
@@ -60,20 +41,20 @@ Work in stages: first approve the content structure, then inspect the implementa
 
 Before handover, ask:
 
-> Map every routine edit to an exact source file. Show a complete example of adding a publication and replacing the CV. Explain how to preview, build, commit, push, and undo a bad update. Match the actual package.json commands.
+> Map every routine edit to an exact source file. Show a complete example of adding a publication and replacing the CV. Explain how to preview, build, commit, and push. Match the actual package.json commands.
 
-**Success check:** you can do a small content update using that guide, without asking AI to rebuild the site.
+**Check:** you can do a small content update using that guide, without asking AI to rebuild the site.
 
-## A5. File map for the case-study website {.scrollable}
+## A5. Website file map {.scrollable}
 
-**Outcome:** you edit the correct source file. Paths below are relative to the website repository root.
+Paths below are relative to the website repository root. Match the filenames to your own project.
 
 | Task | File |
 |---|---|
 | Home bio, role, headshot path, profile links | `app/page.tsx` |
 | Research questions and keyword links | `app/research/page.tsx` |
 | Publication records | `app/publications.json` |
-| Allowed topics, filtering, highlights, author emphasis | `app/publications/publication-browser.tsx` |
+| Allowed topics, filtering, author emphasis | `app/publications/publication-browser.tsx` |
 | Publications heading | `app/publications/page.tsx` |
 | Media items and dates | `app/media/page.tsx` |
 | CV view/download page | `app/cv/page.tsx` |
@@ -86,13 +67,9 @@ Before handover, ask:
 
 `npm run build` runs the build plus `postbuild`. The postbuild script prepares routes and **replaces the entire `docs/` folder**. Edit `app/` and `public/`, then rebuild. Do not put hand-maintained resources only in `docs/`.
 
-The seminar lives in `resources/ai-personal-website/`, safely outside that generated folder. Its GitHub folder URL is a resource link, not a GitHub Pages route.
-
 ## A6. First local preview {.scrollable}
 
-**Outcome:** the project runs on your computer before you publish it.
-
-For a new website, create an empty project folder in your editor and let your coding assistant generate the agreed files there. Follow its setup instructions. Do not paste this researcher's entire identity into your own site.
+For a new website, open an empty project folder in your editor. Ask the AI assistant to create the agreed files there and provide the setup commands.
 
 For an existing repository that you own, clone it with GitHub Desktop, or replace `USERNAME` in:
 
@@ -107,27 +84,23 @@ npm run dev
 
 Open the local address printed in the terminal. Save a source edit and check the page. Use **Ctrl+C** in the terminal to stop the server. A local preview is only visible on your computer unless you deliberately expose it.
 
-The case study's `npm run dev`, `npm run lint`, and `npm run build` commands come from its `package.json`. A different framework may use different commands or output directories.
+The `scripts` section of `package.json` defines the available commands. Match the preview and build commands to your project.
 
-**Success check:** Home, Research, Publications, Media, and the CV all load in the local preview. Review the first terminal error if they do not.
+**Check:** Home, Research, Publications, Media, and the CV all load in the local preview. Review the first terminal error if they do not.
 
 ## A7. Review before launch {.scrollable}
-
-**Outcome:** a site visitors can actually use. Use `maintenance-checklist.md` for a reusable checklist.
 
 1. Read every factual claim, including page titles, affiliation, and footer. Check author order, article status, and DOI destinations against source records.
 2. Open every navigation, contact, profile, media, and CV link. A citation can be correct while its URL is wrong.
 3. Open a research keyword. Confirm the publication filter selects the same topic. Clear it, try another topic, and use browser Back.
-4. Check highlights, result count, and a topic with no results. The current case study filters by topic; it does **not** have free-text publication search.
+4. Check the result count and the message shown for a topic with no results.
 5. Narrow the browser to phone width. Check long titles and menu controls for overflow. Use Tab and Enter to navigate without a mouse.
 6. Confirm image alt text and visible keyboard focus. Open the CV and confirm it is the intended version.
 7. Run `npm run lint` and `npm run build`. Investigate failures before publishing.
 
-**Success check:** no unresolved placeholders, broken internal links, build failures, or unreadable mobile content remain. Keep screenshots for your own comparison if useful.
+**Check:** no unresolved placeholders, broken internal links, build failures, or unreadable mobile content remain. Keep screenshots for your own comparison if useful.
 
 ## A8. GitHub Pages setup {.scrollable}
-
-**Outcome:** your site works at `https://USERNAME.github.io`.
 
 1. On GitHub, create your own public repository named `USERNAME.github.io`, replacing `USERNAME` with your account name. If one already exists, inspect and back it up rather than replacing it blindly.
 2. Clone it with GitHub Desktop. Put the generated **source project** in that clone. Do not copy another project's `.git` folder, `node_modules`, or private files.
@@ -144,13 +117,11 @@ Source: [GitHub repository setup](https://docs.github.com/en/pages/getting-start
 
 ## A9. Optional GoDaddy domain {.scrollable}
 
-**Outcome:** your own address opens the site over HTTPS.
-
-The presenter purchased `jihyehan.com` separately through GoDaddy. For your site, search for an available domain, review the purchase and renewal costs, and register it in an account you control. Set a renewal reminder and keep the account email current. The GitHub Pages workflow does not require a separate GoDaddy hosting purchase.
+Search GoDaddy for a domain such as `YOUR-NAME.com`, review the purchase and renewal costs, and register it in your own account. GitHub Pages provides the hosting, so a separate GoDaddy hosting purchase is unnecessary.
 
 1. Verify ownership in **GitHub account Settings > Pages > Add a domain** using GitHub's provided TXT record. Add that record in your DNS provider and complete verification. Keep it afterward.
 2. Add your domain in the **repository Settings > Pages > Custom domain** field before changing website DNS records.
-3. If GoDaddy manages your nameservers, edit DNS there. Otherwise use the provider that manages your DNS. For an apex domain such as `yourname.com`, the GitHub Pages A records are:
+3. If GoDaddy manages your nameservers, edit DNS there. Otherwise use the provider that manages your DNS. For an apex domain such as `YOUR-NAME.com`, the GitHub Pages A records are:
 
 | Type | Name | Value |
 |---|---|---|
@@ -161,16 +132,14 @@ The presenter purchased `jihyehan.com` separately through GoDaddy. For your site
 | CNAME | `www` | `USERNAME.github.io` |
 
 4. Use your own GitHub username. Values have no `https://` or path. Replace conflicting website records carefully, preserving email and verification records. Avoid wildcard records. Recheck GitHub's current instructions before changing DNS.
-5. In this source/build arrangement, keep the domain in `public/CNAME` as one line, such as `yourname.com`. Confirm the build copies it into `docs/CNAME`. Otherwise a rebuild can erase a domain file added only to generated output.
+5. In this source/build arrangement, keep the domain in `public/CNAME` as one line, such as `YOUR-NAME.com`. Confirm the build copies it into `docs/CNAME`. Otherwise a rebuild can erase a domain file added only to generated output.
 6. Allow time for DNS and certificate provisioning. Enable **Enforce HTTPS** when GitHub offers it, then test both the apex and `www` address. GitHub notes DNS changes can take up to 24 hours.
 
-**Case-study-specific detail:** `scripts/prepare-static.mjs` currently checks for `jihyehan.com`. If you adapt that code, change its domain check along with `public/CNAME`, or make the check optional when using only the free GitHub address. Also replace the absolute domain in `app/layout.tsx` metadata. Do not connect someone else's domain.
+Use your own domain consistently in `public/CNAME`, any domain checks in `scripts/prepare-static.mjs`, and the absolute URLs in `app/layout.tsx`. If using only the free GitHub Pages address, leave out the custom-domain file and make the build’s custom-domain check optional.
 
 Sources: [verify ownership](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages), [GitHub domain and DNS configuration](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site), [GoDaddy DNS management](https://www.godaddy.com/help/manage-dns-records-680).
 
 ## A10. Add a publication without AI {.scrollable}
-
-**Outcome:** a verified article appears in the full list and the correct filters.
 
 1. Open `app/publications.json`. It is an array, enclosed by `[` and `]`, containing one `{ ... }` object per article.
 2. Duplicate one complete object. Give the copy an unused numeric `id`. Replace every bibliographic field with the verified record. Use the DOI identifier only, without `https://doi.org/`.
@@ -179,20 +148,17 @@ Sources: [verify ownership](https://docs.github.com/en/pages/configuring-a-custo
 ```json
 {
   "id": 13,
-  "authors": "Your verified author list",
-  "title": "Your exact article title",
-  "journal": "Journal name",
+  "authors": "YOUR-NAME, COAUTHOR-NAME",
+  "title": "YOUR ARTICLE TITLE",
+  "journal": "YOUR JOURNAL",
   "year": "2026",
   "doi": "REPLACE_WITH_VERIFIED_DOI",
-  "topics": ["pharmacy benefit design"],
-  "highlighted": false
+  "topics": ["health equity"]
 }
 ```
 
-This is a teaching placeholder, not a real publication. The resource folder also includes `examples/publication-record.json`, a real existing record for syntax practice. Do not insert it again into the case-study site, where it already exists.
-
 4. Put a comma **between** adjacent objects: `},` followed by `{`. Do not add a comma after the last object. JSON requires straight double quotes, no comments, and lowercase `true` / `false` without quotes. Escape a quotation mark inside text as `\"`.
-5. Set `highlighted` to `true` only for a small selection you want to feature. Topic strings must match the allowed list exactly.
+5. Match topic strings to the filter options exactly.
 6. From the website root, validate:
 
 ```bash
@@ -203,19 +169,17 @@ npm run build
 
 If you copied only the script into your own project, use its actual location and pass your JSON path as the first argument. The validator checks data structure and duplicates. It cannot verify authorship, citation accuracy, or whether a DOI resolves.
 
-**Success check:** preview the article, click its DOI, select each assigned topic, and confirm the highlight behavior. Then follow A14 to publish.
+**Check:** preview the article, click its DOI, select each assigned topic. Then follow A14 to publish.
 
 ## A11. Topics and linked research questions {.scrollable}
 
-**Outcome:** clicking a research keyword opens the matching publications.
-
-The case study stores topics in three places. To introduce a new one, update all three:
+Keep a new topic consistent in all three locations:
 
 1. Add the exact text to the `topics` array in `app/publications/publication-browser.tsx`.
 2. Assign the same text in the relevant records in `app/publications.json`.
 3. Add the keyword link in `app/research/page.tsx` with an encoded query value.
 
-For the teaching topic **health equity**:
+For a topic named **health equity**:
 
 ```tsx
 // Add this string to the existing topics array:
@@ -234,63 +198,57 @@ For the teaching topic **health equity**:
 
 The snippets show fields or fragments, not complete files. Keep the surrounding array commas and tags intact. `%20` represents a space in a URL. For more complex topic text, use JavaScript's `encodeURIComponent` rather than guessing the URL encoding.
 
-**Success check:** click the keyword, check the selected dropdown, test Clear filter, and press browser Back. A topic unknown to the current allowed list falls back to All topics. A valid topic with no tagged papers shows the empty state.
+**Check:** click the keyword, check the selected dropdown, test Clear filter, and press browser Back. A topic unknown to the current allowed list falls back to All topics. A valid topic with no tagged papers shows the empty state.
 
-When adapting the site, also change the hardcoded `Han J` author-emphasis logic in `publication-browser.tsx` to match your own citation name. This detail is separate from the author list stored in JSON.
+If author names use bold styling, match the name in `publication-browser.tsx` to the exact citation form of YOUR-NAME in the JSON records.
 
 ## A12. CV, biography, photo, and media edits {.scrollable}
 
-**Outcome:** visitors see current information and working files.
-
-**CV:** export a public PDF and replace `public/Jihye-Han-CV.pdf` with the same filename in the case study. For your own site, use your chosen filename. Check Home, navigation, and `/cv/`. If renaming it, search the whole project for the old filename and update source references before building.
+**CV:** export a public PDF and replace `public/YOUR-NAME-CV.pdf` using the same filename. Check Home, navigation, and `/cv/`. If renaming it, search the whole project for the old filename and update source references before building.
 
 **Biography:** edit visible text inside the existing tags in `app/page.tsx`:
 
 ```tsx
-<p>I am a PhD student in Health Policy at
-  <a href="https://www.example.edu/">Example University</a>.
+<p>I am YOUR-NAME, a PhD student in YOUR-FIELD at{" "}
+  <a href="https://www.example.edu/">YOUR-INSTITUTION</a>.
 </p>
 ```
 
-Replace the example URL and add a space where needed in the rendered sentence. Keep opening and closing tags paired. This is a teaching example, not a claim about an actual institution. For an affiliation change, also update footer and description/social metadata in `app/layout.tsx` and any CV references.
+Use your institution’s actual URL. The `{" "}` preserves a space before the link. Keep opening and closing tags paired. For an affiliation change, also update footer and description/social metadata in `app/layout.tsx` and any CV references.
 
-**Photo:** replace the image in `public/` and keep its path consistent with `app/page.tsx` and `app/layout.tsx`. Update alt text and image dimensions if they change. The case study uses the headshot for shared-link previews too.
+**Photo:** replace the image in `public/` and keep its path consistent with `app/page.tsx` and `app/layout.tsx`. Update alt text and image dimensions if they change. Check the image used for shared-link previews too.
 
 **Media:** duplicate an existing `<article>` in `app/media/page.tsx`. Change the outlet, destination, action label, and date together. Use a machine-readable date such as:
 
 ```tsx
-<time dateTime="2026-11-04">November 4, 2026</time>
+<time dateTime="2026-11-05">November 5, 2026</time>
 ```
 
 If using a new logo, place the permitted image in `public/` and update `src`, dimensions, and alt text. Update the visible footer date in `app/layout.tsx` after meaningful changes.
 
-**Success check:** read the rendered text, open the PDF, and inspect both desktop and mobile views. A private/incognito window helps detect a cached PDF.
+**Check:** read the rendered text, open the PDF, and inspect both desktop and mobile views. A private/incognito window helps detect a cached PDF.
 
 ## A13. Small design changes {.scrollable}
-
-**Outcome:** a controlled style adjustment that preserves readability.
 
 Open `app/globals.css` and locate the existing `:root` variables. Change values there rather than adding a second conflicting block:
 
 ```css
 :root {
-  --background: #ffffff;
-  --foreground: #142c38;
-  --primary: #006d77;
-  --border: #ccd9dc;
-  --muted: #f0f5f6;
+  --background: #FFFBF5;
+  --foreground: #292524;
+  --primary: #9A3412;
+  --border: #D6D3D1;
+  --muted: #F5F0E8;
 }
 ```
 
 In this file, some styles also use literal color values. A variable change may not recolor every element. Use editor search to find the old hex value, review each match, and change only the intended rules.
 
-Edit one property at a time. Save, inspect the browser, and undo if the result is poor. Check link visibility, keyboard focus, and contrast on white and pale backgrounds. Do not rely on color alone to distinguish important states.
+Edit one property at a time. Save and inspect the browser before making another change. Check link visibility, keyboard focus, and contrast on white and pale backgrounds. Do not rely on color alone to distinguish important states.
 
-**Success check:** long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.
+**Check:** long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.
 
 ## A14. Preview, commit, and publish an update {.scrollable}
-
-**Outcome:** a reviewed local change reaches the public site with its source and output together.
 
 Start in the website root with no unfinished changes:
 
@@ -316,90 +274,28 @@ git commit -m "Add new publication"
 git push
 ```
 
-The build must finish successfully. `git add` selects the files for the commit. For a CV replacement and date update, use `git add public/Jihye-Han-CV.pdf app/layout.tsx docs` instead. For topic changes, include both the browser component and research page as well. Review the staged files before committing.
+The build must finish successfully. `git add` selects the files for the commit. For a CV replacement and date update, use `git add public/YOUR-NAME-CV.pdf app/layout.tsx docs` instead. For topic changes, include both the browser component and research page as well. Review the staged files before committing.
 
 **GitHub Desktop equivalent:** Fetch/Pull when clean, edit and preview in your editor, run the validation/build commands in its terminal, review Changes, select the changed source files and `docs/`, enter a descriptive summary, Commit to main, then Push origin. Desktop replaces the Git commands, not the build.
 
 After pushing, check the Pages deployment and test the **live** URL. Refresh the affected page and PDF. A successful local preview alone does not prove publication succeeded.
 
-## A15. Undo an update safely {.scrollable}
+## A15. A short practice exercise {.scrollable}
 
-**Outcome:** the last working content returns without rewriting shared history.
+Use your own website project for a small content update.
 
-**Before committing:** use the editor's Undo for an accidental edit. In GitHub Desktop, inspect the diff before discarding a specific unwanted file change. Discarding removes uncommitted work, so do not use it on edits you still need.
+1. Open `app/publications.json` and locate the title, DOI, and topics of one article.
+2. Add a verified publication or correct an existing entry. Preview the full list and the relevant topic filter.
+3. Replace `public/YOUR-NAME-CV.pdf` with your updated CV. Keep the filename unchanged.
+4. Update the footer date and open the PDF from the preview.
+5. Run checks and build. Review the source changes and generated files.
+6. Commit and push to your repository, then check the live page.
 
-**After publishing:** start with a clean working tree, pull current changes, and inspect recent commits:
+**Which file do I edit? How do I check it? What do I commit?**
 
-```bash
-git status
-git pull --ff-only
-git log --oneline -5
-```
-
-Choose the commit to undo. Replace `COMMIT_HASH` below with that actual hash:
-
-```bash
-git revert --no-edit COMMIT_HASH
-git show --stat --oneline HEAD
-git push
-```
-
-This straightforward case assumes the chosen update is the latest relevant content change and its commit contains **both source and generated `docs/`**. The revert then restores both. In GitHub Desktop, find the commit in History, choose **Revert changes in commit**, review, and push.
-
-If the original commit changed only source, restore the source, run the checks and build, then commit the regenerated `docs/` before pushing. If the revert reports conflicts, stop and inspect the affected files. `git revert --abort` cancels an in-progress conflicted revert. Do not use `reset --hard` or force push as the routine recovery method.
-
-**Success check:** the Pages deployment completes and the live site shows the intended restored content. Check later edits if reverting an older commit.
-
-## A16. Troubleshooting and a maintenance rhythm {.scrollable}
-
-| Symptom | First check |
-|---|---|
-| JSON error | Missing comma, extra final comma, curly quotes, or an unescaped quote |
-| New article absent | Correct source file, successful build, `docs/` committed, deployment complete |
-| Topic link shows All topics | Exact spelling in allowed topics, record tags, and URL parameter |
-| Only homepage works | Exported route directories and direct URL refresh behavior |
-| Old CV opens | Correct filename, rebuilt output, browser cache |
-| Local site works but live site fails | Pages branch/folder, deployment logs, missing output files |
-| Domain/HTTPS fails | GitHub domain setting, current DNS records, retained CNAME, provisioning time |
-| `npm ci` fails | Supported Node version and consistency of package.json with the lockfile |
-
-For build errors, read the first useful error and its filename/line number. Fix one cause at a time. Do not publish a failed build or overwrite the whole project to solve a single syntax error.
-
-**After each paper, role change, or talk:** update the affected content and CV.
-
-**Monthly:** check links, research descriptions, publication highlights, contact information, and the public CV.
-
-**Periodically:** review dependency updates in a separate branch or copy, read upgrade notes, and rerun checks before publishing. Keep the project and account recovery information accessible to you.
-
-**Before renewal:** check domain expiry, payment details, and the email that receives registrar notices.
-
-## A17. A short practice exercise {.scrollable}
-
-**Outcome:** one routine update without AI. Work in your own site, or in a local practice copy of the case study. Do not push practice changes to the presenter's repository.
-
-1. Find one publication in the JSON file and identify its title, DOI, topics, and highlight flag.
-2. Toggle `highlighted` locally. Preview the All topics view and a filtered view.
-3. Undo that practice edit.
-4. For your real site, replace your CV using the same filename. Update the footer date, preview, and open the PDF.
-5. Run checks and build. Review the diff and identify the source changes versus generated files.
-6. Publish to your own repository only when the update is real and accurate.
-
-You are ready to maintain the site when you can answer: **Which file do I edit? How do I check it? What do I commit? How do I undo it?**
-
-## A18. Seminar files and further reading {.scrollable}
+## A16. Resources and further reading {.scrollable}
 
 The [GitHub resource folder](https://github.com/jihyehan-research/jihyehan-research.github.io/tree/main/resources/ai-personal-website) contains the deck source, this shared appendix, rendered HTML, prompts, a worksheet, examples, and a validator. Download the repository ZIP through GitHub's **Code > Download ZIP**, then open this resource folder. GitHub shows HTML source rather than presenting the deck inline, so download and open `seminar.html` locally.
-
-To edit the seminar, install Quarto, open a terminal in `resources/ai-personal-website/`, and run:
-
-```bash
-quarto preview seminar.qmd
-quarto render
-```
-
-`quarto render` creates `seminar.html` and `guide.html`. Keep them together so the guide/deck links work. Edit `_guide.qmd` once to update both the slide appendix and continuous guide. Press **S** for speaker view while serving the presentation with `quarto preview`, and **Esc** for the slide overview. The first 14 slides are the 15-minute talk, including the title. The appendix is optional reference material.
-
-To export a PDF for sharing, open print view with **E**, then print to PDF in landscape with no margins and background graphics enabled. Inspect page breaks, especially the long reference appendix, before distributing it.
 
 Official references, checked November 4, 2026:
 
@@ -408,5 +304,3 @@ Official references, checked November 4, 2026:
 - [GitHub Pages creation](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) and [publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [Domain verification](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages) and [custom-domain configuration](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 - [GoDaddy DNS records](https://www.godaddy.com/help/manage-dns-records-680)
-
-Case-study source: the repository's website implementation at commit `a4f9b2a`. The screenshots and editing paths reflect that implementation. Optional features in the prompt are suggestions, not claims that every feature already exists on the case-study site.
