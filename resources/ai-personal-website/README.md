@@ -10,7 +10,7 @@ A **15-minute department seminar**, followed by up to **10 minutes of Q&A**, for
 
 Use GitHub's **Code > Download ZIP** at the repository root. Extract it and open `resources/ai-personal-website/`.
 
-- Open **seminar.html** in a browser to present. The first 13 slides, including the title, are the timed talk. The remaining slides form the reference appendix.
+- Open **seminar.html** in a browser to present. The first 14 slides, including the title, are the timed talk. The remaining slides form the reference appendix.
 - Open **guide.html** for a searchable, continuous guide with copyable code.
 - Keep both HTML files in the same folder for their cross-links. GitHub's file viewer shows HTML source rather than running the presentation.
 - For speaker view, use `quarto preview seminar.qmd`, then press **S**. Use **Esc** for slide overview. The notes include a 15-minute pacing plan.

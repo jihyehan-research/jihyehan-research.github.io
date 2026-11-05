@@ -40,7 +40,7 @@ Today: **create with AI**, then **maintain it yourself**.
 0:30–1:15. A visitor may be a collaborator, a hiring committee member, a journalist, or another student. Plan around the information that visitor needs. A short, accurate site is enough to start. Optional sections can wait until there is real content.
 :::
 
-## The case study: jihyehan.com
+## www.jihyehan.com
 
 :::: {.columns}
 ::: {.column width="62%"}
@@ -71,7 +71,9 @@ Today: **create with AI**, then **maintain it yourself**.
 | 3. Review | Check facts and try every link | Fix specific problems |
 | 4. Publish | Own the account and domain | Document the build process |
 
-**Ask for maintainable files and an editing guide in the first prompt.**
+::: {.tip}
+**Tips.** Ask for maintainable files and an editing guide in the first or final prompt.
+:::
 
 ::: {.notes}
 2:15–3:05. We can make the process more efficient by agreeing on structure and editing locations up front. AI can produce code, but the researcher remains responsible for the biography, publication records, and permissions to share materials. Ask the tool to explain where future edits belong before calling the site finished.
@@ -81,26 +83,21 @@ Today: **create with AI**, then **maintain it yourself**.
 
 :::: {.columns}
 ::: {.column width="50%"}
-**Prepare once**
+**Prepare**
 
-- Short bio and affiliation
-- 2–4 research questions
-- Verified citations and DOI links
-- Public CV and a headshot
+- Short bio and affiliation (for cover page)
+- Public CV and a headshot (for cover or a separate CV page)
+- 2–4 research questions (optional, for "Research" page)
+- Verified citations and DOI links (for publication page)
 :::
 ::: {.column width="50%"}
-**Decide once**
+**Decide**
 
-- Essential pages and optional sections
+- Optional sections
 - Contact and profile links
 - Colors, type, and example layouts
-- Publication order and topic labels
 :::
 ::::
-
-::: {.small}
-Use public material. Remove private contact details and unpublished or restricted research before sharing files with an AI tool.
-:::
 
 ::: {.notes}
 3:05–3:50. The resource folder contains a worksheet to assemble this packet. Optional teaching, software, datasets, and news sections are useful when there is something current to show. Keep the site's descriptions consistent with your CV. Do not ask the model to fill gaps by guessing.
@@ -109,20 +106,22 @@ Use public material. Remove private contact details and unpublished or restricte
 ## A prompt that specifies the result
 
 ::: {.small}
-> Build a professional academic website for a PhD researcher using the attached verified content. Create Home, Research, Publications, Media, and CV pages. Use charcoal `#292524`, terracotta `#9A3412`, and an ivory `#FFFBF5` background. Use sans-serif headings, a left sidebar on desktop, and a top menu on mobile.
+> Build a professional academic website for a PhD student using the attached verified content. Create Home, Research, Publications, Media, and CV pages. Use charcoal `#292524`, terracotta `#9A3412`, and an ivory `#FFFBF5` background. Use sans-serif headings, a left sidebar on desktop, and a top menu on mobile.
 >
 > Include DOI links, topic filters linked from research questions, and accessible navigation. Keep publication records in one editable data file. Do not invent facts. Flag missing information.
 >
 > Deliver the source files, preview/build commands, GitHub Pages instructions, and a file-by-file editing guide. Show me how to add one paper and replace my CV without AI.
 :::
 
-[Full copy-and-paste prompt in the appendix](#a3-full-creation-prompt)
+::: {.tip}
+**Tips.** Use the [full copy-and-paste prompt in the appendix](#a3-full-creation-prompt).
+:::
 
 ::: {.notes}
 3:50–5:00. This is an abbreviated prompt. The appendix adds exact fields, interaction behavior, metadata, accessibility, and acceptance checks. Tell a coding assistant to implement the site in your project folder. If using an ordinary chat interface, ask for complete named files and instructions for saving them. Avoid repeatedly asking to make it more professional. State what needs to change and how you will judge it.
 :::
 
-## Useful features need a clear test
+## Useful features (optional)
 
 :::: {.columns}
 ::: {.column width="57%"}
@@ -132,7 +131,6 @@ Use public material. Remove private contact details and unpublished or restricte
 - **DOI links:** article titles open the published paper.
 - **Topic links:** a research keyword opens the matching papers.
 - **Filtering:** clearing the filter restores all papers.
-- **Small screens:** navigation and links remain usable.
 :::
 ::::
 
@@ -145,12 +143,12 @@ Use public material. Remove private contact details and unpublished or restricte
 **GitHub stores the project. GitHub Pages serves the built website.**
 
 1. Create your own `USERNAME.github.io` repository.
-2. Build the site and publish its `docs/` folder from `main`.
+2. Run `npm run build`, then publish the generated `docs/` folder from `main`.
 3. Check the free GitHub Pages address.
 4. Optional: buy a domain through GoDaddy and connect it using DNS.
 
-::: {.small}
-For a custom domain: verify ownership, set it in GitHub Pages, add the DNS records, then enable HTTPS. Keep the domain file in the source assets.
+::: {.tip}
+**Tips.** Ask AI for step-by-step instructions to verify domain ownership, connect it in GitHub Pages, add the DNS records, and enable HTTPS.
 :::
 
 ::: {.notes}
@@ -168,13 +166,25 @@ For a custom domain: verify ownership, set it in GitHub Pages, add the DNS recor
 | CV PDF and headshot | `public/` |
 | Colors; shared metadata and footer | `app/globals.css`; `app/layout.tsx` |
 
-**Edit the source. The build recreates `docs/`.**
+::: {.small}
+**Build = turn your edited files into website files.** In VS Code, open your website folder, choose **Terminal > New Terminal**, and run:
+
+```bash
+npm run build
+```
+
+This command generates `docs/`, the folder GitHub Pages displays online.
+:::
+
+::: {.tip}
+**Tips.** Edit the files above. Changes made directly in `docs/` disappear the next time you build.
+:::
 
 ::: {.notes}
 7:10–8:15. JSX files combine text and HTML-like tags. JSON holds structured publication data. CSS controls appearance. The public folder contains files that the build copies to the website. We do not edit generated docs files by hand because the next build will replace them. The case-study framework is React/TypeScript with a vinext build. Attendees can choose another framework, but their file map must match their actual project.
 :::
 
-## One new publication
+## New publications
 
 ```json
 {
@@ -188,30 +198,34 @@ For a custom domain: verify ownership, set it in GitHub Pages, add the DNS recor
 }
 ```
 
-::: {.small}
-Replace the fields, use a unique ID, and insert the object into `app/publications.json`. A comma separates it from the next record.
+::: {.tip}
+**Tips.** Add the record to `app/publications.json` with a unique ID. Separate it from the next record with a comma.
 :::
 
 ::: {.notes}
 8:15–9:30. Each record needs a unique ID. The DOI field contains the identifier without https://doi.org/, because the page adds the prefix. JSON uses straight double quotes. Topic spelling matches the dropdown options exactly. The order of records in this file determines their order on the page.
 :::
 
-## A CV replacement without broken links
+## CV replacement
 
 1. Export a new, public version of your CV as PDF.
 2. Replace `public/YOUR-NAME-CV.pdf` using the **same filename**.
 3. Update the footer date in `app/layout.tsx`.
 4. Preview the site and open the PDF from each CV link.
 
-::: {.small}
-A filename change also requires updating every link to the PDF.
+::: {.tip}
+**Tips.** Keep the same PDF filename so existing CV links continue to work.
 :::
+
 
 ::: {.notes}
 9:30–10:20. This is a useful first maintenance exercise. Check page count and first page so a cached PDF does not fool you. Similar logic applies to the headshot. If your affiliation changes, also update the homepage, footer, page description, and social preview metadata. These are separate copies in the case-study code.
 :::
 
-## The update routine
+## The update routine: preview your changes
+
+::: {.workflow}
+1. In VS Code, open your **website folder** containing `package.json`. Choose **Terminal > New Terminal**. Before editing, run:
 
 ```bash
 git status
@@ -219,7 +233,23 @@ git pull --ff-only
 npm run dev
 ```
 
-Edit one thing, check it in the browser, then stop the preview with **Ctrl+C**.
+2. Open the **local URL printed in the terminal** in your browser, for example `http://localhost:3000`. Keep the terminal running.
+3. Edit a source file in VS Code and **save it**. Return to the browser and refresh. Open the changed page and try its links or CV download.
+4. When the change looks right, click inside the **VS Code terminal** and press **Ctrl+C** to stop the preview.
+:::
+
+::: {.tip}
+**Tips.** The local preview is visible on your computer. Follow the next slide to publish it. Pull only when `git status` shows no unfinished changes.
+:::
+
+::: {.notes}
+10:20–12:00. The terminal is a panel inside VS Code. It stays open while the local preview is running. The URL appears after npm run dev starts and may use a port other than 3000. Copy the complete printed address into the browser. Save the actual source file, then revisit the relevant page in the preview. Ctrl+C goes in the terminal, not in the browser. This ends the local preview process without deleting saved edits.
+:::
+
+## The update routine: build and publish
+
+::: {.workflow}
+1. In the same terminal, run these commands **one at a time** for a publication update:
 
 ```bash
 npm run lint
@@ -230,8 +260,16 @@ git commit -m "Add new publication"
 git push
 ```
 
+2. **Lint** checks the code; **build** generates `docs/`. Continue after both succeed. **Diff** shows your edits; **add** selects files; **commit** saves a version; **push** sends it to GitHub.
+3. On GitHub, open the repository’s **Actions** tab. Wait for the Pages deployment to succeed. Open `https://USERNAME.github.io` or your custom domain, refresh, and check the updated page.
+:::
+
+::: {.tip}
+**Tips.** For other updates, replace `app/publications.json` with the source files you changed. Include `docs/` so the website files reach GitHub too.
+:::
+
 ::: {.notes}
-10:20–14:00. Run these commands from the website repository root. Start with a clean working tree, so do not pull over unfinished work. The staging line is specifically for a publication-only update. Stage every source file you changed for other tasks, plus docs. A successful build is required before pushing generated output. The guide explains each command, the GitHub Desktop equivalent, and how to check the live site after Pages finishes deploying. Do not commit node_modules or secrets.
+12:00–14:00. The publication example stages the JSON file and generated website output together. For a CV and footer update, the source files are public/YOUR-NAME-CV.pdf and app/layout.tsx. A build prepares files on this computer. It does not upload them. git push sends the committed files to GitHub, where the existing Pages configuration publishes main /docs. Actions shows when that deployment completes. The final check uses the public address, not the localhost preview address.
 :::
 
 ## Resources and discussion {#resources}

@@ -65,7 +65,15 @@ Paths below are relative to the website repository root. Match the filenames to 
 | Build commands / dependency versions | `package.json` / `package-lock.json` |
 | Static route preparation and output copying | `scripts/prepare-static.mjs` |
 
-`npm run build` runs the build plus `postbuild`. The postbuild script prepares routes and **replaces the entire `docs/` folder**. Edit `app/` and `public/`, then rebuild. Do not put hand-maintained resources only in `docs/`.
+**Build** means converting the files you edit into the website files that GitHub Pages can display. In VS Code, open the website folder containing `package.json`, select **Terminal > New Terminal**, and enter:
+
+```bash
+npm run build
+```
+
+Wait for the command to finish successfully and return to the terminal prompt. In this project, it also runs `postbuild`, which prepares page routes and replaces `docs/` with the generated website files. Building happens on your computer. The publishing steps in A14 upload those files to GitHub.
+
+**Tips.** Edit `app/` and `public/`. The next build overwrites manual edits inside `docs/`.
 
 ## A6. First local preview {.scrollable}
 
@@ -82,7 +90,13 @@ npm run dev
 
 `npm ci` installs the versions in an existing `package-lock.json`. If your new generated project does not yet have a lockfile, follow its documented first-install step, usually `npm install`, and commit the resulting lockfile. Do not mix dependency managers.
 
-Open the local address printed in the terminal. Save a source edit and check the page. Use **Ctrl+C** in the terminal to stop the server. A local preview is only visible on your computer unless you deliberately expose it.
+After `npm run dev` starts, the terminal prints a local web address, such as `http://localhost:3000`. Click that address or copy it into your browser’s address bar. Use the exact address and port printed in your terminal.
+
+Keep the terminal running. Edit a source file in VS Code and save it with **Cmd+S** on Mac or **Ctrl+S** on Windows. Return to the browser and refresh the preview page. Navigate to the page you changed and check its text, links, or PDF.
+
+When you finish checking, click inside the VS Code terminal and press **Ctrl+C**. This stops the preview server and returns the terminal to its prompt. Your saved changes remain in the files.
+
+**Tips.** `localhost` is the preview on your computer. It does not update the public website. Follow A14 to publish.
 
 The `scripts` section of `package.json` defines the available commands. Match the preview and build commands to your project.
 
@@ -248,9 +262,11 @@ Edit one property at a time. Save and inspect the browser before making another 
 
 **Check:** long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.
 
-## A14. Preview, commit, and publish an update {.scrollable}
+## A14. Preview, build, and publish an update {.scrollable}
 
-Start in the website root with no unfinished changes:
+### 1. Open the project and start the preview
+
+In VS Code, open your website folder containing `package.json`. Select **Terminal > New Terminal**. Before making new edits, run:
 
 ```bash
 git status
@@ -258,14 +274,31 @@ git pull --ff-only
 npm run dev
 ```
 
-If `git status` shows work you have not finished, resolve that work before pulling. If the fast-forward pull fails, inspect the divergence instead of force-pushing. Edit your file, check the local page, and stop the server with **Ctrl+C**.
+`git status` shows unfinished changes. Pull only after those changes are resolved and the working tree is clean. `git pull --ff-only` downloads the latest committed version from GitHub. `npm run dev` starts the local preview.
 
-For a publication-only edit:
+### 2. Save and check the changed page
+
+Open the URL printed in the terminal in your browser, for example `http://localhost:3000`. Keep the terminal running. Edit a source file, save it, then refresh the browser. Open the affected page and test the changed content, topic filter, or CV link.
+
+When you finish, click inside the VS Code terminal and press **Ctrl+C**. The preview stops and the terminal accepts new commands.
+
+### 3. Check the code and build website files
+
+Run each command and wait for it to finish:
 
 ```bash
 node resources/ai-personal-website/scripts/check-publications.mjs
 npm run lint
 npm run build
+```
+
+The first command checks publication records and is needed when that data changes. `npm run lint` checks code issues. `npm run build` converts the source into generated website files in `docs/`. Continue only when the checks and build succeed. These commands prepare the website locally; they do not upload it.
+
+### 4. Save a version and send it to GitHub
+
+For a publication-only update:
+
+```bash
 git diff -- app/publications.json
 git status --short
 git add app/publications.json docs
@@ -274,11 +307,24 @@ git commit -m "Add new publication"
 git push
 ```
 
-The build must finish successfully. `git add` selects the files for the commit. For a CV replacement and date update, use `git add public/YOUR-NAME-CV.pdf app/layout.tsx docs` instead. For topic changes, include both the browser component and research page as well. Review the staged files before committing.
+| Command | What it does |
+|---|---|
+| `git diff` | Shows the edits for review |
+| `git status --short` | Lists changed files |
+| `git add` | Selects files for the next saved version |
+| `git diff --cached --stat` | Summarizes the selected files |
+| `git commit` | Saves that version locally with a descriptive message |
+| `git push` | Sends committed versions to GitHub |
 
-**GitHub Desktop equivalent:** Fetch/Pull when clean, edit and preview in your editor, run the validation/build commands in its terminal, review Changes, select the changed source files and `docs/`, enter a descriptive summary, Commit to main, then Push origin. Desktop replaces the Git commands, not the build.
+**Tips.** Select all source files you changed plus `docs/`. For a CV replacement and footer date update, use `git add public/YOUR-NAME-CV.pdf app/layout.tsx docs` instead of the publication staging command.
 
-After pushing, check the Pages deployment and test the **live** URL. Refresh the affected page and PDF. A successful local preview alone does not prove publication succeeded.
+### 5. Check the published website
+
+Open your repository on GitHub and select **Actions**. Wait for the Pages deployment to show success. Then open `https://USERNAME.github.io` or your custom domain in the browser. Refresh the affected page and open the updated PDF or links. This public address is different from the local preview address.
+
+This assumes the one-time setup in A8: GitHub Pages publishes from **main /docs**. Each push containing updated `docs/` files makes those changes available for publication.
+
+**GitHub Desktop equivalent:** Fetch/Pull when clean, edit and preview in VS Code, and run the checks/build in its terminal. In Desktop’s **Changes** view, review and select the source files and `docs/`, enter a summary, choose **Commit to main**, then **Push origin**. Finish with the same Actions and public-site checks above.
 
 ## A15. A short practice exercise {.scrollable}
 

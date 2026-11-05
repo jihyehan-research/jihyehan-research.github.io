@@ -30,3 +30,9 @@ $code-block-font-size: 0.7em;
 .reveal .slide-menu-button { color: #006d77; }
 
 .reveal #title-slide h1 { font-size: 1.9em; max-width: 1050px; margin-inline: auto; }
+
+.reveal .tip { margin-top: .8em; padding: .25em 0 .25em .65em; border-left: 3px solid #006d77; font-size: .72em; }
+.reveal .tip p { margin: 0; }
+.reveal .workflow { font-size: .82em; }
+.reveal .workflow ol { margin-bottom: .4em; }
+.reveal .workflow pre { font-size: .84em; margin-block: .45em; }
