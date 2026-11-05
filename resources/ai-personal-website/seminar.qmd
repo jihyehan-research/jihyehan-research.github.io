@@ -167,17 +167,17 @@ Today: **create with AI**, then **maintain it yourself**.
 | Colors; shared metadata and footer | `app/globals.css`; `app/layout.tsx` |
 
 ::: {.small}
-**Build = turn your edited files into website files.** In VS Code, open your website folder, choose **Terminal > New Terminal**, and run:
+**Build = turn your edited files into website files.** In RStudio, use the **Terminal** tab beside Console. Go to the folder containing `package.json`, then run:
 
 ```bash
 npm run build
 ```
 
-This command generates `docs/`, the folder GitHub Pages displays online.
+This generates `docs/` on your computer. Commit and push those files to publish them.
 :::
 
 ::: {.tip}
-**Tips.** Edit the files above. Changes made directly in `docs/` disappear the next time you build.
+**Tips.** These are terminal commands, not R code. Node.js/npm must be installed. The next build overwrites direct edits to `docs/`.
 :::
 
 ::: {.notes}
@@ -225,7 +225,7 @@ This command generates `docs/`, the folder GitHub Pages displays online.
 ## The update routine: preview your changes
 
 ::: {.workflow}
-1. In VS Code, open your **website folder** containing `package.json`. Choose **Terminal > New Terminal**. Before editing, run:
+1. Open RStudio’s **Terminal** tab. Use `cd "PATH/TO/YOUR-WEBSITE"` to enter the folder containing `package.json`. Before editing, run:
 
 ```bash
 git status
@@ -234,8 +234,8 @@ npm run dev
 ```
 
 2. Open the **local URL printed in the terminal** in your browser, for example `http://localhost:3000`. Keep the terminal running.
-3. Edit a source file in VS Code and **save it**. Return to the browser and refresh. Open the changed page and try its links or CV download.
-4. When the change looks right, click inside the **VS Code terminal** and press **Ctrl+C** to stop the preview.
+3. Edit a source file in RStudio or another text editor and **save it**. Return to the browser and refresh. Open the changed page and try its links or CV download.
+4. When the change looks right, click inside the **Terminal tab** and press **Ctrl+C** to stop the preview.
 :::
 
 ::: {.tip}
@@ -243,7 +243,7 @@ npm run dev
 :::
 
 ::: {.notes}
-10:20–12:00. The terminal is a panel inside VS Code. It stays open while the local preview is running. The URL appears after npm run dev starts and may use a port other than 3000. Copy the complete printed address into the browser. Save the actual source file, then revisit the relevant page in the preview. Ctrl+C goes in the terminal, not in the browser. This ends the local preview process without deleting saved edits.
+10:20–12:00. RStudio’s Terminal tab opens a system shell. It is separate from the R Console. Node.js supplies npm and must already be installed. The cd command changes the terminal’s current folder to the website project. VS Code is optional. It stays open while the local preview is running. The URL appears after npm run dev starts and may use a port other than 3000. Copy the complete printed address into the browser. Save the actual source file, then revisit the relevant page in the preview. Ctrl+C goes in the terminal, not in the browser. This ends the local preview process without deleting saved edits.
 :::
 
 ## The update routine: build and publish
@@ -269,7 +269,7 @@ git push
 :::
 
 ::: {.notes}
-12:00–14:00. The publication example stages the JSON file and generated website output together. For a CV and footer update, the source files are public/YOUR-NAME-CV.pdf and app/layout.tsx. A build prepares files on this computer. It does not upload them. git push sends the committed files to GitHub, where the existing Pages configuration publishes main /docs. Actions shows when that deployment completes. The final check uses the public address, not the localhost preview address.
+12:00–14:00. The publication example stages the JSON file and generated website output together. For a CV and footer update, the source files are public/YOUR-NAME-CV.pdf and app/layout.tsx. A build prepares files on this computer. It does not upload them. git push sends the committed files to GitHub, where the existing Pages configuration publishes main /docs. Actions shows when that deployment completes. The final check uses the public address, not the localhost preview address. Editing docs directly on GitHub and committing to main also triggers Pages publication. However, the next local build replaces docs from source, so regular updates belong in the source files.
 :::
 
 ## Resources and discussion {#resources}

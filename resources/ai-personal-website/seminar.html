@@ -1324,12 +1324,12 @@ display:block!important;
 </tbody>
 </table>
 <div class="small">
-<p><strong>Build = turn your edited files into website files.</strong> In VS Code, open your website folder, choose <strong>Terminal &gt; New Terminal</strong>, and run:</p>
+<p><strong>Build = turn your edited files into website files.</strong> In RStudio, use the <strong>Terminal</strong> tab beside Console. Go to the folder containing <code>package.json</code>, then run:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command generates <code>docs/</code>, the folder GitHub Pages displays online.</p>
+<p>This generates <code>docs/</code> on your computer. Commit and push those files to publish them.</p>
 </div>
 <div class="tip">
-<p><strong>Tips.</strong> Edit the files above. Changes made directly in <code>docs/</code> disappear the next time you build.</p>
+<p><strong>Tips.</strong> These are terminal commands, not R code. Node.js/npm must be installed. The next build overwrites direct edits to <code>docs/</code>.</p>
 </div>
 <aside class="notes">
 <p>7:10–8:15. JSX files combine text and HTML-like tags. JSON holds structured publication data. CSS controls appearance. The public folder contains files that the build copies to the website. We do not edit generated docs files by hand because the next build will replace them. The case-study framework is React/TypeScript with a vinext build. Attendees can choose another framework, but their file map must match their actual project.</p>
@@ -1402,22 +1402,22 @@ display:block!important;
 <h2>The update routine: preview your changes</h2>
 <div class="workflow">
 <ol type="1">
-<li>In VS Code, open your <strong>website folder</strong> containing <code>package.json</code>. Choose <strong>Terminal &gt; New Terminal</strong>. Before editing, run:</li>
+<li>Open RStudio’s <strong>Terminal</strong> tab. Use <code>cd &quot;PATH/TO/YOUR-WEBSITE&quot;</code> to enter the folder containing <code>package.json</code>. Before editing, run:</li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href></a><span class="fu">git</span> status</span>
 <span id="cb3-2"><a href></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
 <span id="cb3-3"><a href></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>Open the <strong>local URL printed in the terminal</strong> in your browser, for example <code>http://localhost:3000</code>. Keep the terminal running.</li>
-<li>Edit a source file in VS Code and <strong>save it</strong>. Return to the browser and refresh. Open the changed page and try its links or CV download.</li>
-<li>When the change looks right, click inside the <strong>VS Code terminal</strong> and press <strong>Ctrl+C</strong> to stop the preview.</li>
+<li>Edit a source file in RStudio or another text editor and <strong>save it</strong>. Return to the browser and refresh. Open the changed page and try its links or CV download.</li>
+<li>When the change looks right, click inside the <strong>Terminal tab</strong> and press <strong>Ctrl+C</strong> to stop the preview.</li>
 </ol>
 </div>
 <div class="tip">
 <p><strong>Tips.</strong> The local preview is visible on your computer. Follow the next slide to publish it. Pull only when <code>git status</code> shows no unfinished changes.</p>
 </div>
 <aside class="notes">
-<p>10:20–12:00. The terminal is a panel inside VS Code. It stays open while the local preview is running. The URL appears after npm run dev starts and may use a port other than 3000. Copy the complete printed address into the browser. Save the actual source file, then revisit the relevant page in the preview. Ctrl+C goes in the terminal, not in the browser. This ends the local preview process without deleting saved edits.</p>
+<p>10:20–12:00. RStudio’s Terminal tab opens a system shell. It is separate from the R Console. Node.js supplies npm and must already be installed. The cd command changes the terminal’s current folder to the website project. VS Code is optional. It stays open while the local preview is running. The URL appears after npm run dev starts and may use a port other than 3000. Copy the complete printed address into the browser. Save the actual source file, then revisit the relevant page in the preview. Ctrl+C goes in the terminal, not in the browser. This ends the local preview process without deleting saved edits.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1451,7 +1451,7 @@ display:block!important;
 <p><strong>Tips.</strong> For other updates, replace <code>app/publications.json</code> with the source files you changed. Include <code>docs/</code> so the website files reach GitHub too.</p>
 </div>
 <aside class="notes">
-<p>12:00–14:00. The publication example stages the JSON file and generated website output together. For a CV and footer update, the source files are public/YOUR-NAME-CV.pdf and app/layout.tsx. A build prepares files on this computer. It does not upload them. git push sends the committed files to GitHub, where the existing Pages configuration publishes main /docs. Actions shows when that deployment completes. The final check uses the public address, not the localhost preview address.</p>
+<p>12:00–14:00. The publication example stages the JSON file and generated website output together. For a CV and footer update, the source files are public/YOUR-NAME-CV.pdf and app/layout.tsx. A build prepares files on this computer. It does not upload them. git push sends the committed files to GitHub, where the existing Pages configuration publishes main /docs. Actions shows when that deployment completes. The final check uses the public address, not the localhost preview address. Editing docs directly on GitHub and committing to main also triggers Pages publication. However, the next local build replaces docs from source, so regular updates belong in the source files.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1525,7 +1525,12 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p>In VS Code, open the <strong>website repository folder</strong>, then <strong>Terminal &gt; New Terminal</strong>. Commands below run from that folder unless stated otherwise. On Windows, Git Bash provides a shell similar to the examples. The commands do not include a <code>$</code> prompt character.</p>
+<p>In RStudio, click the <strong>Terminal</strong> tab beside <strong>Console</strong>. If it is hidden, choose <strong>Tools &gt; Terminal &gt; Move Focus to Terminal</strong>. These commands run in the system shell, not the R Console. RStudio’s Run or Render buttons do not run <code>npm run build</code>.</p>
+<p>Use <code>cd</code> to move the terminal into your website folder. Replace the path below with your actual folder path, keeping the quotation marks:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href></a><span class="bu">cd</span> <span class="st">&quot;PATH/TO/YOUR-WEBSITE&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That folder must contain <code>package.json</code>. For example, a Windows path can be written as <code>C:/Users/YOUR-NAME/Documents/YOUR-WEBSITE</code>, and a Mac path as <code>/Users/YOUR-NAME/Documents/YOUR-WEBSITE</code>. Commands below run from that folder unless stated otherwise.</p>
+<p><strong>Tips.</strong> Node.js provides <code>npm</code> and must be installed separately from R/RStudio. Check with <code>node --version</code> and <code>npm --version</code> in the Terminal. If either command is unavailable, install a supported <a href="https://nodejs.org/en/download">Node.js LTS version</a> and restart RStudio. VS Code is optional.</p>
+<p>Source: <a href="https://docs.posit.co/ide/user/ide/guide/tools/terminal.html">RStudio Terminal documentation</a>.</p>
 </section>
 <section id="a2.-your-content-worksheet" class="slide level2 scrollable">
 <h2>A2. Your content worksheet</h2>
@@ -1544,76 +1549,76 @@ display:block!important;
 </section>
 <section id="a3-full-creation-prompt" class="slide level2 scrollable">
 <h2>A3. Full creation prompt</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href></a>You are helping me create and later maintain a professional academic website.</span>
-<span id="cb5-2"><a href></a></span>
-<span id="cb5-3"><a href></a>CONTEXT</span>
-<span id="cb5-4"><a href></a>I am YOUR-NAME, [role] at [institution]. My audience includes researchers,</span>
-<span id="cb5-5"><a href></a>potential collaborators, and hiring committees. I am a beginner at web</span>
-<span id="cb5-6"><a href></a>development. Use the attached content worksheet, verified publications, public</span>
-<span id="cb5-7"><a href></a>CV, and headshot as the source of facts. Flag missing information. Do not invent</span>
-<span id="cb5-8"><a href></a>publications, affiliations, awards, media coverage, quotations, or links.</span>
-<span id="cb5-9"><a href></a></span>
-<span id="cb5-10"><a href></a>PAGES AND FIELDS</span>
-<span id="cb5-11"><a href></a>1. Home: name, credentials, current role and institution, one-sentence research</span>
-<span id="cb5-12"><a href></a>   focus, short biography, headshot with alt text, publications and CV links,</span>
-<span id="cb5-13"><a href></a>   email, Google Scholar, and optional ORCID, GitHub, or LinkedIn links.</span>
-<span id="cb5-14"><a href></a>2. Research: 2–4 themes. For each, show a question, why it matters, what I study,</span>
-<span id="cb5-15"><a href></a>   and topic keywords that link to the matching publication filter.</span>
-<span id="cb5-16"><a href></a>3. Publications: one chronological list with verified author order,</span>
-<span id="cb5-17"><a href></a>   exact title, journal, year, DOI link, topic tags, and optional paper/code/data</span>
-<span id="cb5-18"><a href></a>   links only when provided and appropriate to share. Put records in one JSON</span>
-<span id="cb5-19"><a href></a>   file with fields id, authors, title, journal, year, doi, topics.</span>
-<span id="cb5-20"><a href></a>   Explain the ordering rule. Bold my author name consistently if requested.</span>
-<span id="cb5-21"><a href></a>4. Media: outlet or program, coverage title, date, link, descriptive action text,</span>
-<span id="cb5-22"><a href></a>   and an optional logo with alt text. Omit this page if I supply no coverage.</span>
-<span id="cb5-23"><a href></a>5. CV: store the PDF at public/YOUR-NAME-CV.pdf and link to /YOUR-NAME-CV.pdf</span>
-<span id="cb5-24"><a href></a>   in the navigation. Include an optional page with view and download buttons.</span>
-<span id="cb5-25"><a href></a>   Explain how to replace the PDF.</span>
-<span id="cb5-26"><a href></a>Optional teaching, software, datasets, or news sections should appear only when</span>
-<span id="cb5-27"><a href></a>I supply content and ask for them.</span>
-<span id="cb5-28"><a href></a></span>
-<span id="cb5-29"><a href></a>DESIGN</span>
-<span id="cb5-30"><a href></a>Use an ivory background #FFFBF5, charcoal text #292524, terracotta accents</span>
-<span id="cb5-31"><a href></a>#9A3412, and warm gray borders #D6D3D1. Use sans-serif headings and body text.</span>
-<span id="cb5-32"><a href></a>Place navigation in a left sidebar on desktop and a top menu on mobile.</span>
-<span id="cb5-33"><a href></a>Use a wide reading column, generous spacing, and simple text links.</span>
-<span id="cb5-34"><a href></a>Avoid decorative animations. Include visible keyboard focus,</span>
-<span id="cb5-35"><a href></a>descriptive link labels, a skip link, labeled form controls, and image alt text.</span>
-<span id="cb5-36"><a href></a></span>
-<span id="cb5-37"><a href></a>BEHAVIOR</span>
-<span id="cb5-38"><a href></a>Include navigation with a working mobile menu. Publication filtering must</span>
-<span id="cb5-39"><a href></a>support an All topics option, a clear-filter action, a result count, and an</span>
-<span id="cb5-40"><a href></a>empty state. Store the topic in a ?topic= URL parameter so research links can</span>
-<span id="cb5-41"><a href></a>open it directly. Browser Back must restore the preceding filter.</span>
-<span id="cb5-42"><a href></a>Keep topic spellings consistent across files.</span>
-<span id="cb5-43"><a href></a>Include accurate page titles, descriptions, and a social-sharing image.</span>
-<span id="cb5-44"><a href></a></span>
-<span id="cb5-45"><a href></a>IMPLEMENTATION AND OWNERSHIP</span>
-<span id="cb5-46"><a href></a>Inspect the existing project before changing its framework. For a new project,</span>
-<span id="cb5-47"><a href></a>propose a simple static-compatible approach and explain the maintenance tradeoff.</span>
-<span id="cb5-48"><a href></a>Use editable page files in app/, assets in public/, and a static build that</span>
-<span id="cb5-49"><a href></a>generates docs/ for GitHub Pages. Document any differences in the final file map.</span>
-<span id="cb5-50"><a href></a>The published site must work without a Node server.</span>
-<span id="cb5-51"><a href></a>Use one repository that I own. Keep content separate from layout where practical.</span>
-<span id="cb5-52"><a href></a>Do not embed passwords, tokens, private data, or paid services I did not request.</span>
-<span id="cb5-53"><a href></a></span>
-<span id="cb5-54"><a href></a>DELIVERABLES</span>
-<span id="cb5-55"><a href></a>Create the working files in my project folder. If you cannot edit files, return</span>
-<span id="cb5-56"><a href></a>complete named files and instructions for saving them. Provide:</span>
-<span id="cb5-57"><a href></a>- a source-file map, installation steps, and exact preview/build commands;</span>
-<span id="cb5-58"><a href></a>- a documented build that produces static pages in docs/ and preserves a</span>
-<span id="cb5-59"><a href></a>  .nojekyll file and, only when configured, the custom-domain CNAME file;</span>
-<span id="cb5-60"><a href></a>- GitHub Pages setup for my USERNAME.github.io repository using main /docs;</span>
-<span id="cb5-61"><a href></a>- instructions to add a publication, change a topic, replace the CV, update my</span>
-<span id="cb5-62"><a href></a>  affiliation, and change a color without AI;</span>
-<span id="cb5-63"><a href></a>- a clear commit/push routine for publishing content updates.</span>
-<span id="cb5-64"><a href></a></span>
-<span id="cb5-65"><a href></a>ACCEPTANCE CHECKS</span>
-<span id="cb5-66"><a href></a>Check the build, every page and CV link, DOI destinations, phone-width layout,</span>
-<span id="cb5-67"><a href></a>keyboard navigation, filter clear/empty states, research-to-publication links,</span>
-<span id="cb5-68"><a href></a>and browser Back. Verify all visible content against the supplied material.</span>
-<span id="cb5-69"><a href></a>Show the draft and report unresolved placeholders. Finish the handover only</span>
-<span id="cb5-70"><a href></a>after I can locate the file for one publication edit and one CV replacement.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href></a>You are helping me create and later maintain a professional academic website.</span>
+<span id="cb6-2"><a href></a></span>
+<span id="cb6-3"><a href></a>CONTEXT</span>
+<span id="cb6-4"><a href></a>I am YOUR-NAME, [role] at [institution]. My audience includes researchers,</span>
+<span id="cb6-5"><a href></a>potential collaborators, and hiring committees. I am a beginner at web</span>
+<span id="cb6-6"><a href></a>development. Use the attached content worksheet, verified publications, public</span>
+<span id="cb6-7"><a href></a>CV, and headshot as the source of facts. Flag missing information. Do not invent</span>
+<span id="cb6-8"><a href></a>publications, affiliations, awards, media coverage, quotations, or links.</span>
+<span id="cb6-9"><a href></a></span>
+<span id="cb6-10"><a href></a>PAGES AND FIELDS</span>
+<span id="cb6-11"><a href></a>1. Home: name, credentials, current role and institution, one-sentence research</span>
+<span id="cb6-12"><a href></a>   focus, short biography, headshot with alt text, publications and CV links,</span>
+<span id="cb6-13"><a href></a>   email, Google Scholar, and optional ORCID, GitHub, or LinkedIn links.</span>
+<span id="cb6-14"><a href></a>2. Research: 2–4 themes. For each, show a question, why it matters, what I study,</span>
+<span id="cb6-15"><a href></a>   and topic keywords that link to the matching publication filter.</span>
+<span id="cb6-16"><a href></a>3. Publications: one chronological list with verified author order,</span>
+<span id="cb6-17"><a href></a>   exact title, journal, year, DOI link, topic tags, and optional paper/code/data</span>
+<span id="cb6-18"><a href></a>   links only when provided and appropriate to share. Put records in one JSON</span>
+<span id="cb6-19"><a href></a>   file with fields id, authors, title, journal, year, doi, topics.</span>
+<span id="cb6-20"><a href></a>   Explain the ordering rule. Bold my author name consistently if requested.</span>
+<span id="cb6-21"><a href></a>4. Media: outlet or program, coverage title, date, link, descriptive action text,</span>
+<span id="cb6-22"><a href></a>   and an optional logo with alt text. Omit this page if I supply no coverage.</span>
+<span id="cb6-23"><a href></a>5. CV: store the PDF at public/YOUR-NAME-CV.pdf and link to /YOUR-NAME-CV.pdf</span>
+<span id="cb6-24"><a href></a>   in the navigation. Include an optional page with view and download buttons.</span>
+<span id="cb6-25"><a href></a>   Explain how to replace the PDF.</span>
+<span id="cb6-26"><a href></a>Optional teaching, software, datasets, or news sections should appear only when</span>
+<span id="cb6-27"><a href></a>I supply content and ask for them.</span>
+<span id="cb6-28"><a href></a></span>
+<span id="cb6-29"><a href></a>DESIGN</span>
+<span id="cb6-30"><a href></a>Use an ivory background #FFFBF5, charcoal text #292524, terracotta accents</span>
+<span id="cb6-31"><a href></a>#9A3412, and warm gray borders #D6D3D1. Use sans-serif headings and body text.</span>
+<span id="cb6-32"><a href></a>Place navigation in a left sidebar on desktop and a top menu on mobile.</span>
+<span id="cb6-33"><a href></a>Use a wide reading column, generous spacing, and simple text links.</span>
+<span id="cb6-34"><a href></a>Avoid decorative animations. Include visible keyboard focus,</span>
+<span id="cb6-35"><a href></a>descriptive link labels, a skip link, labeled form controls, and image alt text.</span>
+<span id="cb6-36"><a href></a></span>
+<span id="cb6-37"><a href></a>BEHAVIOR</span>
+<span id="cb6-38"><a href></a>Include navigation with a working mobile menu. Publication filtering must</span>
+<span id="cb6-39"><a href></a>support an All topics option, a clear-filter action, a result count, and an</span>
+<span id="cb6-40"><a href></a>empty state. Store the topic in a ?topic= URL parameter so research links can</span>
+<span id="cb6-41"><a href></a>open it directly. Browser Back must restore the preceding filter.</span>
+<span id="cb6-42"><a href></a>Keep topic spellings consistent across files.</span>
+<span id="cb6-43"><a href></a>Include accurate page titles, descriptions, and a social-sharing image.</span>
+<span id="cb6-44"><a href></a></span>
+<span id="cb6-45"><a href></a>IMPLEMENTATION AND OWNERSHIP</span>
+<span id="cb6-46"><a href></a>Inspect the existing project before changing its framework. For a new project,</span>
+<span id="cb6-47"><a href></a>propose a simple static-compatible approach and explain the maintenance tradeoff.</span>
+<span id="cb6-48"><a href></a>Use editable page files in app/, assets in public/, and a static build that</span>
+<span id="cb6-49"><a href></a>generates docs/ for GitHub Pages. Document any differences in the final file map.</span>
+<span id="cb6-50"><a href></a>The published site must work without a Node server.</span>
+<span id="cb6-51"><a href></a>Use one repository that I own. Keep content separate from layout where practical.</span>
+<span id="cb6-52"><a href></a>Do not embed passwords, tokens, private data, or paid services I did not request.</span>
+<span id="cb6-53"><a href></a></span>
+<span id="cb6-54"><a href></a>DELIVERABLES</span>
+<span id="cb6-55"><a href></a>Create the working files in my project folder. If you cannot edit files, return</span>
+<span id="cb6-56"><a href></a>complete named files and instructions for saving them. Provide:</span>
+<span id="cb6-57"><a href></a>- a source-file map, installation steps, and exact preview/build commands;</span>
+<span id="cb6-58"><a href></a>- a documented build that produces static pages in docs/ and preserves a</span>
+<span id="cb6-59"><a href></a>  .nojekyll file and, only when configured, the custom-domain CNAME file;</span>
+<span id="cb6-60"><a href></a>- GitHub Pages setup for my USERNAME.github.io repository using main /docs;</span>
+<span id="cb6-61"><a href></a>- instructions to add a publication, change a topic, replace the CV, update my</span>
+<span id="cb6-62"><a href></a>  affiliation, and change a color without AI;</span>
+<span id="cb6-63"><a href></a>- a clear commit/push routine for publishing content updates.</span>
+<span id="cb6-64"><a href></a></span>
+<span id="cb6-65"><a href></a>ACCEPTANCE CHECKS</span>
+<span id="cb6-66"><a href></a>Check the build, every page and CV link, DOI destinations, phone-width layout,</span>
+<span id="cb6-67"><a href></a>keyboard navigation, filter clear/empty states, research-to-publication links,</span>
+<span id="cb6-68"><a href></a>and browser Back. Verify all visible content against the supplied material.</span>
+<span id="cb6-69"><a href></a>Show the draft and report unresolved placeholders. Finish the handover only</span>
+<span id="cb6-70"><a href></a>after I can locate the file for one publication edit and one CV replacement.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="a4.-efficient-review-prompts" class="slide level2 scrollable">
 <h2>A4. Efficient review prompts</h2>
@@ -1699,23 +1704,56 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p><strong>Build</strong> means converting the files you edit into the website files that GitHub Pages can display. In VS Code, open the website folder containing <code>package.json</code>, select <strong>Terminal &gt; New Terminal</strong>, and enter:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Build</strong> means converting the files you edit into the website files that GitHub Pages can display. In RStudio’s <strong>Terminal</strong> tab, use <code>cd</code> to enter the website folder containing <code>package.json</code>, then run:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wait for the command to finish successfully and return to the terminal prompt. In this project, it also runs <code>postbuild</code>, which prepares page routes and replaces <code>docs/</code> with the generated website files. Building happens on your computer. The publishing steps in A14 upload those files to GitHub.</p>
 <p><strong>Tips.</strong> Edit <code>app/</code> and <code>public/</code>. The next build overwrites manual edits inside <code>docs/</code>.</p>
+<p><strong>When does a change become public?</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Save a source file or a file in <code>docs/</code> on your computer</td>
+<td>Local change only</td>
+</tr>
+<tr class="even">
+<td>Run <code>npm run build</code></td>
+<td>Regenerates local website files in <code>docs/</code></td>
+</tr>
+<tr class="odd">
+<td>Commit and push the updated <code>docs/</code> to <code>main</code></td>
+<td>Triggers GitHub Pages publication</td>
+</tr>
+<tr class="even">
+<td>Edit a file inside <code>docs/</code> on GitHub and commit to <code>main</code></td>
+<td>Also triggers publication, but the next source build can overwrite that edit</td>
+</tr>
+</tbody>
+</table>
+<p>This project uses Pages publishing from <strong>main /docs</strong>. GitHub does not automatically run this project’s <code>npm run build</code> command when a source file changes. Keep routine edits in the source, build locally, then commit and push the source and <code>docs/</code> together.</p>
+<p>Source: <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub Pages publishing sources</a>.</p>
 </section>
 <section id="a6.-first-local-preview" class="slide level2 scrollable">
 <h2>A6. First local preview</h2>
 <p>For a new website, open an empty project folder in your editor. Ask the AI assistant to create the agreed files there and provide the setup commands.</p>
 <p>For an existing repository that you own, clone it with GitHub Desktop, or replace <code>USERNAME</code> in:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href></a><span class="fu">git</span> clone https://github.com/USERNAME/USERNAME.github.io.git</span>
-<span id="cb7-2"><a href></a><span class="bu">cd</span> USERNAME.github.io</span>
-<span id="cb7-3"><a href></a><span class="ex">npm</span> ci</span>
-<span id="cb7-4"><a href></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href></a><span class="fu">git</span> clone https://github.com/USERNAME/USERNAME.github.io.git</span>
+<span id="cb8-2"><a href></a><span class="bu">cd</span> USERNAME.github.io</span>
+<span id="cb8-3"><a href></a><span class="ex">npm</span> ci</span>
+<span id="cb8-4"><a href></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>npm ci</code> installs the versions in an existing <code>package-lock.json</code>. If your new generated project does not yet have a lockfile, follow its documented first-install step, usually <code>npm install</code>, and commit the resulting lockfile. Do not mix dependency managers.</p>
 <p>After <code>npm run dev</code> starts, the terminal prints a local web address, such as <code>http://localhost:3000</code>. Click that address or copy it into your browser’s address bar. Use the exact address and port printed in your terminal.</p>
-<p>Keep the terminal running. Edit a source file in VS Code and save it with <strong>Cmd+S</strong> on Mac or <strong>Ctrl+S</strong> on Windows. Return to the browser and refresh the preview page. Navigate to the page you changed and check its text, links, or PDF.</p>
-<p>When you finish checking, click inside the VS Code terminal and press <strong>Ctrl+C</strong>. This stops the preview server and returns the terminal to its prompt. Your saved changes remain in the files.</p>
+<p>Keep the terminal running. Edit a source file in RStudio or another text editor and save it with <strong>Cmd+S</strong> on Mac or <strong>Ctrl+S</strong> on Windows. Return to the browser and refresh the preview page. Navigate to the page you changed and check its text, links, or PDF.</p>
+<p>When you finish checking, click inside RStudio’s Terminal tab and press <strong>Ctrl+C</strong>. This stops the preview server and returns the terminal to its prompt. Your saved changes remain in the files.</p>
 <p><strong>Tips.</strong> <code>localhost</code> is the preview on your computer. It does not update the public website. Follow A14 to publish.</p>
 <p>The <code>scripts</code> section of <code>package.json</code> defines the available commands. Match the preview and build commands to your project.</p>
 <p><strong>Check:</strong> Home, Research, Publications, Media, and the CV all load in the local preview. Review the first terminal error if they do not.</p>
@@ -1791,6 +1829,7 @@ display:block!important;
 </tr>
 </tbody>
 </table>
+<p><strong>Tips.</strong> These four IP addresses belong to GitHub Pages and are shared service addresses. They are not personal IP addresses or account credentials. Replace <code>USERNAME</code> and <code>YOUR-NAME.com</code> with your own values. For the verification TXT record, use the value GitHub generates for your account.</p>
 <ol start="4" type="1">
 <li>Use your own GitHub username. Values have no <code>https://</code> or path. Replace conflicting website records carefully, preserving email and verification records. Avoid wildcard records. Recheck GitHub’s current instructions before changing DNS.</li>
 <li>In this source/build arrangement, keep the domain in <code>public/CNAME</code> as one line, such as <code>YOUR-NAME.com</code>. Confirm the build copies it into <code>docs/CNAME</code>. Otherwise a rebuild can erase a domain file added only to generated output.</li>
@@ -1806,23 +1845,23 @@ display:block!important;
 <li>Duplicate one complete object. Give the copy an unused numeric <code>id</code>. Replace every bibliographic field with the verified record. Use the DOI identifier only, without <code>https://doi.org/</code>.</li>
 <li>Insert it at the intended position. <strong>The current code preserves file order; it does not sort by year.</strong> Put newer entries earlier if you want newest-first order.</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href></a><span class="fu">{</span></span>
-<span id="cb8-2"><a href></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">13</span><span class="fu">,</span></span>
-<span id="cb8-3"><a href></a>  <span class="dt">&quot;authors&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR-NAME, COAUTHOR-NAME&quot;</span><span class="fu">,</span></span>
-<span id="cb8-4"><a href></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR ARTICLE TITLE&quot;</span><span class="fu">,</span></span>
-<span id="cb8-5"><a href></a>  <span class="dt">&quot;journal&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR JOURNAL&quot;</span><span class="fu">,</span></span>
-<span id="cb8-6"><a href></a>  <span class="dt">&quot;year&quot;</span><span class="fu">:</span> <span class="st">&quot;2026&quot;</span><span class="fu">,</span></span>
-<span id="cb8-7"><a href></a>  <span class="dt">&quot;doi&quot;</span><span class="fu">:</span> <span class="st">&quot;REPLACE_WITH_VERIFIED_DOI&quot;</span><span class="fu">,</span></span>
-<span id="cb8-8"><a href></a>  <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span>
-<span id="cb8-9"><a href></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a href></a><span class="fu">{</span></span>
+<span id="cb9-2"><a href></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">13</span><span class="fu">,</span></span>
+<span id="cb9-3"><a href></a>  <span class="dt">&quot;authors&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR-NAME, COAUTHOR-NAME&quot;</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href></a>  <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR ARTICLE TITLE&quot;</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href></a>  <span class="dt">&quot;journal&quot;</span><span class="fu">:</span> <span class="st">&quot;YOUR JOURNAL&quot;</span><span class="fu">,</span></span>
+<span id="cb9-6"><a href></a>  <span class="dt">&quot;year&quot;</span><span class="fu">:</span> <span class="st">&quot;2026&quot;</span><span class="fu">,</span></span>
+<span id="cb9-7"><a href></a>  <span class="dt">&quot;doi&quot;</span><span class="fu">:</span> <span class="st">&quot;REPLACE_WITH_VERIFIED_DOI&quot;</span><span class="fu">,</span></span>
+<span id="cb9-8"><a href></a>  <span class="dt">&quot;topics&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span>
+<span id="cb9-9"><a href></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li>Put a comma <strong>between</strong> adjacent objects: <code>},</code> followed by <code>{</code>. Do not add a comma after the last object. JSON requires straight double quotes, no comments, and lowercase <code>true</code> / <code>false</code> without quotes. Escape a quotation mark inside text as <code>\&quot;</code>.</li>
 <li>Match topic strings to the filter options exactly.</li>
 <li>From the website root, validate:</li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
-<span id="cb9-2"><a href></a><span class="ex">npm</span> run lint</span>
-<span id="cb9-3"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
+<span id="cb10-2"><a href></a><span class="ex">npm</span> run lint</span>
+<span id="cb10-3"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you copied only the script into your own project, use its actual location and pass your JSON path as the first argument. The validator checks data structure and duplicates. It cannot verify authorship, citation accuracy, or whether a DOI resolves.</p>
 <p><strong>Check:</strong> preview the article, click its DOI, select each assigned topic. Then follow A14 to publish.</p>
 </section>
@@ -1835,12 +1874,12 @@ display:block!important;
 <li>Add the keyword link in <code>app/research/page.tsx</code> with an encoded query value.</li>
 </ol>
 <p>For a topic named <strong>health equity</strong>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href></a>// Add this string to the existing topics array:</span>
-<span id="cb10-2"><a href></a>&#39;health equity&#39;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb11-1"><a href></a><span class="er">&quot;topics&quot;:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href></a>&lt;a href=&quot;/publications/?topic=health%20equity&quot;&gt;</span>
-<span id="cb12-2"><a href></a>  health equity</span>
-<span id="cb12-3"><a href></a>&lt;/a&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href></a>// Add this string to the existing topics array:</span>
+<span id="cb11-2"><a href></a>&#39;health equity&#39;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href></a><span class="er">&quot;topics&quot;:</span> <span class="ot">[</span><span class="st">&quot;health equity&quot;</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href></a>&lt;a href=&quot;/publications/?topic=health%20equity&quot;&gt;</span>
+<span id="cb13-2"><a href></a>  health equity</span>
+<span id="cb13-3"><a href></a>&lt;/a&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The snippets show fields or fragments, not complete files. Keep the surrounding array commas and tags intact. <code>%20</code> represents a space in a URL. For more complex topic text, use JavaScript’s <code>encodeURIComponent</code> rather than guessing the URL encoding.</p>
 <p><strong>Check:</strong> click the keyword, check the selected dropdown, test Clear filter, and press browser Back. A topic unknown to the current allowed list falls back to All topics. A valid topic with no tagged papers shows the empty state.</p>
 <p>If author names use bold styling, match the name in <code>publication-browser.tsx</code> to the exact citation form of YOUR-NAME in the JSON records.</p>
@@ -1849,26 +1888,26 @@ display:block!important;
 <h2>A12. CV, biography, photo, and media edits</h2>
 <p><strong>CV:</strong> export a public PDF and replace <code>public/YOUR-NAME-CV.pdf</code> using the same filename. Check Home, navigation, and <code>/cv/</code>. If renaming it, search the whole project for the old filename and update source references before building.</p>
 <p><strong>Biography:</strong> edit visible text inside the existing tags in <code>app/page.tsx</code>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href></a>&lt;p&gt;I am YOUR-NAME, a PhD student in YOUR-FIELD at{&quot; &quot;}</span>
-<span id="cb13-2"><a href></a>  &lt;a href=&quot;https://www.example.edu/&quot;&gt;YOUR-INSTITUTION&lt;/a&gt;.</span>
-<span id="cb13-3"><a href></a>&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href></a>&lt;p&gt;I am YOUR-NAME, a PhD student in YOUR-FIELD at{&quot; &quot;}</span>
+<span id="cb14-2"><a href></a>  &lt;a href=&quot;https://www.example.edu/&quot;&gt;YOUR-INSTITUTION&lt;/a&gt;.</span>
+<span id="cb14-3"><a href></a>&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use your institution’s actual URL. The <code>{&quot; &quot;}</code> preserves a space before the link. Keep opening and closing tags paired. For an affiliation change, also update footer and description/social metadata in <code>app/layout.tsx</code> and any CV references.</p>
 <p><strong>Photo:</strong> replace the image in <code>public/</code> and keep its path consistent with <code>app/page.tsx</code> and <code>app/layout.tsx</code>. Update alt text and image dimensions if they change. Check the image used for shared-link previews too.</p>
 <p><strong>Media:</strong> duplicate an existing <code>&lt;article&gt;</code> in <code>app/media/page.tsx</code>. Change the outlet, destination, action label, and date together. Use a machine-readable date such as:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href></a>&lt;time dateTime=&quot;2026-11-05&quot;&gt;November 5, 2026&lt;/time&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource tsx number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href></a>&lt;time dateTime=&quot;2026-11-05&quot;&gt;November 5, 2026&lt;/time&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If using a new logo, place the permitted image in <code>public/</code> and update <code>src</code>, dimensions, and alt text. Update the visible footer date in <code>app/layout.tsx</code> after meaningful changes.</p>
 <p><strong>Check:</strong> read the rendered text, open the PDF, and inspect both desktop and mobile views. A private/incognito window helps detect a cached PDF.</p>
 </section>
 <section id="a13.-small-design-changes" class="slide level2 scrollable">
 <h2>A13. Small design changes</h2>
 <p>Open <code>app/globals.css</code> and locate the existing <code>:root</code> variables. Change values there rather than adding a second conflicting block:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb15-1"><a href></a><span class="in">:root</span> {</span>
-<span id="cb15-2"><a href></a>  <span class="va">--background</span><span class="ch">:</span> <span class="cn">#FFFBF5</span><span class="op">;</span></span>
-<span id="cb15-3"><a href></a>  <span class="va">--foreground</span><span class="ch">:</span> <span class="cn">#292524</span><span class="op">;</span></span>
-<span id="cb15-4"><a href></a>  <span class="va">--primary</span><span class="ch">:</span> <span class="cn">#9A3412</span><span class="op">;</span></span>
-<span id="cb15-5"><a href></a>  <span class="va">--border</span><span class="ch">:</span> <span class="cn">#D6D3D1</span><span class="op">;</span></span>
-<span id="cb15-6"><a href></a>  <span class="va">--muted</span><span class="ch">:</span> <span class="cn">#F5F0E8</span><span class="op">;</span></span>
-<span id="cb15-7"><a href></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb16-1"><a href></a><span class="in">:root</span> {</span>
+<span id="cb16-2"><a href></a>  <span class="va">--background</span><span class="ch">:</span> <span class="cn">#FFFBF5</span><span class="op">;</span></span>
+<span id="cb16-3"><a href></a>  <span class="va">--foreground</span><span class="ch">:</span> <span class="cn">#292524</span><span class="op">;</span></span>
+<span id="cb16-4"><a href></a>  <span class="va">--primary</span><span class="ch">:</span> <span class="cn">#9A3412</span><span class="op">;</span></span>
+<span id="cb16-5"><a href></a>  <span class="va">--border</span><span class="ch">:</span> <span class="cn">#D6D3D1</span><span class="op">;</span></span>
+<span id="cb16-6"><a href></a>  <span class="va">--muted</span><span class="ch">:</span> <span class="cn">#F5F0E8</span><span class="op">;</span></span>
+<span id="cb16-7"><a href></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this file, some styles also use literal color values. A variable change may not recolor every element. Use editor search to find the old hex value, review each match, and change only the intended rules.</p>
 <p>Edit one property at a time. Save and inspect the browser before making another change. Check link visibility, keyboard focus, and contrast on white and pale backgrounds. Do not rely on color alone to distinguish important states.</p>
 <p><strong>Check:</strong> long titles still wrap, text remains readable, and no content overlaps at phone width. Keep framework or dependency upgrades separate from a simple visual edit.</p>
@@ -1876,28 +1915,28 @@ display:block!important;
 <section id="a14.-preview-build-and-publish-an-update" class="slide level2 scrollable">
 <h2>A14. Preview, build, and publish an update</h2>
 <h3 id="open-the-project-and-start-the-preview">1. Open the project and start the preview</h3>
-<p>In VS Code, open your website folder containing <code>package.json</code>. Select <strong>Terminal &gt; New Terminal</strong>. Before making new edits, run:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href></a><span class="fu">git</span> status</span>
-<span id="cb16-2"><a href></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
-<span id="cb16-3"><a href></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In RStudio, open the <strong>Terminal</strong> tab beside Console. Use <code>cd &quot;PATH/TO/YOUR-WEBSITE&quot;</code> to enter the folder containing <code>package.json</code>. Before making new edits, run:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href></a><span class="fu">git</span> status</span>
+<span id="cb17-2"><a href></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span>
+<span id="cb17-3"><a href></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>git status</code> shows unfinished changes. Pull only after those changes are resolved and the working tree is clean. <code>git pull --ff-only</code> downloads the latest committed version from GitHub. <code>npm run dev</code> starts the local preview.</p>
 <h3 id="save-and-check-the-changed-page">2. Save and check the changed page</h3>
 <p>Open the URL printed in the terminal in your browser, for example <code>http://localhost:3000</code>. Keep the terminal running. Edit a source file, save it, then refresh the browser. Open the affected page and test the changed content, topic filter, or CV link.</p>
-<p>When you finish, click inside the VS Code terminal and press <strong>Ctrl+C</strong>. The preview stops and the terminal accepts new commands.</p>
+<p>When you finish, click inside RStudio’s Terminal tab and press <strong>Ctrl+C</strong>. The preview stops and the terminal accepts new commands.</p>
 <h3 id="check-the-code-and-build-website-files">3. Check the code and build website files</h3>
 <p>Run each command and wait for it to finish:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
-<span id="cb17-2"><a href></a><span class="ex">npm</span> run lint</span>
-<span id="cb17-3"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href></a><span class="ex">node</span> resources/ai-personal-website/scripts/check-publications.mjs</span>
+<span id="cb18-2"><a href></a><span class="ex">npm</span> run lint</span>
+<span id="cb18-3"><a href></a><span class="ex">npm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The first command checks publication records and is needed when that data changes. <code>npm run lint</code> checks code issues. <code>npm run build</code> converts the source into generated website files in <code>docs/</code>. Continue only when the checks and build succeed. These commands prepare the website locally; they do not upload it.</p>
 <h3 id="save-a-version-and-send-it-to-github">4. Save a version and send it to GitHub</h3>
 <p>For a publication-only update:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href></a><span class="fu">git</span> diff <span class="at">--</span> app/publications.json</span>
-<span id="cb18-2"><a href></a><span class="fu">git</span> status <span class="at">--short</span></span>
-<span id="cb18-3"><a href></a><span class="fu">git</span> add app/publications.json docs</span>
-<span id="cb18-4"><a href></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="at">--stat</span></span>
-<span id="cb18-5"><a href></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Add new publication&quot;</span></span>
-<span id="cb18-6"><a href></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href></a><span class="fu">git</span> diff <span class="at">--</span> app/publications.json</span>
+<span id="cb19-2"><a href></a><span class="fu">git</span> status <span class="at">--short</span></span>
+<span id="cb19-3"><a href></a><span class="fu">git</span> add app/publications.json docs</span>
+<span id="cb19-4"><a href></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="at">--stat</span></span>
+<span id="cb19-5"><a href></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Add new publication&quot;</span></span>
+<span id="cb19-6"><a href></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1936,7 +1975,7 @@ display:block!important;
 <h3 id="check-the-published-website">5. Check the published website</h3>
 <p>Open your repository on GitHub and select <strong>Actions</strong>. Wait for the Pages deployment to show success. Then open <code>https://USERNAME.github.io</code> or your custom domain in the browser. Refresh the affected page and open the updated PDF or links. This public address is different from the local preview address.</p>
 <p>This assumes the one-time setup in A8: GitHub Pages publishes from <strong>main /docs</strong>. Each push containing updated <code>docs/</code> files makes those changes available for publication.</p>
-<p><strong>GitHub Desktop equivalent:</strong> Fetch/Pull when clean, edit and preview in VS Code, and run the checks/build in its terminal. In Desktop’s <strong>Changes</strong> view, review and select the source files and <code>docs/</code>, enter a summary, choose <strong>Commit to main</strong>, then <strong>Push origin</strong>. Finish with the same Actions and public-site checks above.</p>
+<p><strong>GitHub Desktop equivalent:</strong> Fetch/Pull when clean, edit in RStudio or another text editor, preview in your browser, and run the checks/build in RStudio’s Terminal. In Desktop’s <strong>Changes</strong> view, review and select the source files and <code>docs/</code>, enter a summary, choose <strong>Commit to main</strong>, then <strong>Push origin</strong>. Finish with the same Actions and public-site checks above.</p>
 </section>
 <section id="a15.-a-short-practice-exercise" class="slide level2 scrollable">
 <h2>A15. A short practice exercise</h2>

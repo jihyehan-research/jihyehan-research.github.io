@@ -9,7 +9,19 @@
 | Commit / push | Save a version locally / send it to GitHub |
 | Domain / DNS | Your address / the records connecting it to your host |
 
-In VS Code, open the **website repository folder**, then **Terminal > New Terminal**. Commands below run from that folder unless stated otherwise. On Windows, Git Bash provides a shell similar to the examples. The commands do not include a `$` prompt character.
+In RStudio, click the **Terminal** tab beside **Console**. If it is hidden, choose **Tools > Terminal > Move Focus to Terminal**. These commands run in the system shell, not the R Console. RStudio’s Run or Render buttons do not run `npm run build`.
+
+Use `cd` to move the terminal into your website folder. Replace the path below with your actual folder path, keeping the quotation marks:
+
+```bash
+cd "PATH/TO/YOUR-WEBSITE"
+```
+
+That folder must contain `package.json`. For example, a Windows path can be written as `C:/Users/YOUR-NAME/Documents/YOUR-WEBSITE`, and a Mac path as `/Users/YOUR-NAME/Documents/YOUR-WEBSITE`. Commands below run from that folder unless stated otherwise.
+
+**Tips.** Node.js provides `npm` and must be installed separately from R/RStudio. Check with `node --version` and `npm --version` in the Terminal. If either command is unavailable, install a supported [Node.js LTS version](https://nodejs.org/en/download) and restart RStudio. VS Code is optional.
+
+Source: [RStudio Terminal documentation](https://docs.posit.co/ide/user/ide/guide/tools/terminal.html).
 
 
 ## A2. Your content worksheet {.scrollable}
@@ -65,7 +77,7 @@ Paths below are relative to the website repository root. Match the filenames to 
 | Build commands / dependency versions | `package.json` / `package-lock.json` |
 | Static route preparation and output copying | `scripts/prepare-static.mjs` |
 
-**Build** means converting the files you edit into the website files that GitHub Pages can display. In VS Code, open the website folder containing `package.json`, select **Terminal > New Terminal**, and enter:
+**Build** means converting the files you edit into the website files that GitHub Pages can display. In RStudio’s **Terminal** tab, use `cd` to enter the website folder containing `package.json`, then run:
 
 ```bash
 npm run build
@@ -74,6 +86,19 @@ npm run build
 Wait for the command to finish successfully and return to the terminal prompt. In this project, it also runs `postbuild`, which prepares page routes and replaces `docs/` with the generated website files. Building happens on your computer. The publishing steps in A14 upload those files to GitHub.
 
 **Tips.** Edit `app/` and `public/`. The next build overwrites manual edits inside `docs/`.
+
+**When does a change become public?**
+
+| Action | Result |
+|---|---|
+| Save a source file or a file in `docs/` on your computer | Local change only |
+| Run `npm run build` | Regenerates local website files in `docs/` |
+| Commit and push the updated `docs/` to `main` | Triggers GitHub Pages publication |
+| Edit a file inside `docs/` on GitHub and commit to `main` | Also triggers publication, but the next source build can overwrite that edit |
+
+This project uses Pages publishing from **main /docs**. GitHub does not automatically run this project’s `npm run build` command when a source file changes. Keep routine edits in the source, build locally, then commit and push the source and `docs/` together.
+
+Source: [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## A6. First local preview {.scrollable}
 
@@ -92,9 +117,9 @@ npm run dev
 
 After `npm run dev` starts, the terminal prints a local web address, such as `http://localhost:3000`. Click that address or copy it into your browser’s address bar. Use the exact address and port printed in your terminal.
 
-Keep the terminal running. Edit a source file in VS Code and save it with **Cmd+S** on Mac or **Ctrl+S** on Windows. Return to the browser and refresh the preview page. Navigate to the page you changed and check its text, links, or PDF.
+Keep the terminal running. Edit a source file in RStudio or another text editor and save it with **Cmd+S** on Mac or **Ctrl+S** on Windows. Return to the browser and refresh the preview page. Navigate to the page you changed and check its text, links, or PDF.
 
-When you finish checking, click inside the VS Code terminal and press **Ctrl+C**. This stops the preview server and returns the terminal to its prompt. Your saved changes remain in the files.
+When you finish checking, click inside RStudio’s Terminal tab and press **Ctrl+C**. This stops the preview server and returns the terminal to its prompt. Your saved changes remain in the files.
 
 **Tips.** `localhost` is the preview on your computer. It does not update the public website. Follow A14 to publish.
 
@@ -144,6 +169,8 @@ Search GoDaddy for a domain such as `YOUR-NAME.com`, review the purchase and ren
 | A | `@` | `185.199.110.153` |
 | A | `@` | `185.199.111.153` |
 | CNAME | `www` | `USERNAME.github.io` |
+
+**Tips.** These four IP addresses belong to GitHub Pages and are shared service addresses. They are not personal IP addresses or account credentials. Replace `USERNAME` and `YOUR-NAME.com` with your own values. For the verification TXT record, use the value GitHub generates for your account.
 
 4. Use your own GitHub username. Values have no `https://` or path. Replace conflicting website records carefully, preserving email and verification records. Avoid wildcard records. Recheck GitHub's current instructions before changing DNS.
 5. In this source/build arrangement, keep the domain in `public/CNAME` as one line, such as `YOUR-NAME.com`. Confirm the build copies it into `docs/CNAME`. Otherwise a rebuild can erase a domain file added only to generated output.
@@ -266,7 +293,7 @@ Edit one property at a time. Save and inspect the browser before making another 
 
 ### 1. Open the project and start the preview
 
-In VS Code, open your website folder containing `package.json`. Select **Terminal > New Terminal**. Before making new edits, run:
+In RStudio, open the **Terminal** tab beside Console. Use `cd "PATH/TO/YOUR-WEBSITE"` to enter the folder containing `package.json`. Before making new edits, run:
 
 ```bash
 git status
@@ -280,7 +307,7 @@ npm run dev
 
 Open the URL printed in the terminal in your browser, for example `http://localhost:3000`. Keep the terminal running. Edit a source file, save it, then refresh the browser. Open the affected page and test the changed content, topic filter, or CV link.
 
-When you finish, click inside the VS Code terminal and press **Ctrl+C**. The preview stops and the terminal accepts new commands.
+When you finish, click inside RStudio’s Terminal tab and press **Ctrl+C**. The preview stops and the terminal accepts new commands.
 
 ### 3. Check the code and build website files
 
@@ -324,7 +351,7 @@ Open your repository on GitHub and select **Actions**. Wait for the Pages deploy
 
 This assumes the one-time setup in A8: GitHub Pages publishes from **main /docs**. Each push containing updated `docs/` files makes those changes available for publication.
 
-**GitHub Desktop equivalent:** Fetch/Pull when clean, edit and preview in VS Code, and run the checks/build in its terminal. In Desktop’s **Changes** view, review and select the source files and `docs/`, enter a summary, choose **Commit to main**, then **Push origin**. Finish with the same Actions and public-site checks above.
+**GitHub Desktop equivalent:** Fetch/Pull when clean, edit in RStudio or another text editor, preview in your browser, and run the checks/build in RStudio’s Terminal. In Desktop’s **Changes** view, review and select the source files and `docs/`, enter a summary, choose **Commit to main**, then **Push origin**. Finish with the same Actions and public-site checks above.
 
 ## A15. A short practice exercise {.scrollable}
 
